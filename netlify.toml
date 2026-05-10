@@ -7,7 +7,14 @@
   NODE_VERSION = "24"
   PYTHON_VERSION = "3.13"
 
-# Proxy all /api/* requests to the Python function
+# WhatsApp webhook — standalone function, no FastAPI dependency
+[[redirects]]
+  from = "/api/leads/webhook"
+  to = "/.netlify/functions/webhook"
+  status = 200
+  force = true
+
+# Proxy all other /api/* requests to the Python FastAPI function
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
@@ -25,9 +32,6 @@
   included_files = [
     "apps/backend/**",
   ]
-
-[functions.api]
-  external_node_modules = []
 
 [dev]
   command = "cd apps/frontend && npm start"
