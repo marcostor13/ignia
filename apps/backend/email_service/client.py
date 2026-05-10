@@ -1,11 +1,11 @@
 """
-Email client — Outlook / Microsoft 365 SMTP.
+Email client — Gmail SMTP.
 
-Server:  smtp.office365.com
+Server:  smtp.gmail.com
 Port:    587 (STARTTLS)
 Env vars:
-  EMAIL_FROM      = admin@ignia.site
-  EMAIL_PASSWORD  = contraseña o App Password de la cuenta
+  EMAIL_SMTP   = tucuenta@gmail.com
+  APPPASSWORD  = App Password de 16 caracteres generado en myaccount.google.com
 """
 
 import os
@@ -18,15 +18,15 @@ import aiosmtplib
 
 logger = logging.getLogger(__name__)
 
-_SMTP_HOST = "smtp.office365.com"
+_SMTP_HOST = "smtp.gmail.com"
 _SMTP_PORT = 587
 
 
 class EmailClient:
 
     def __init__(self) -> None:
-        self.from_addr = os.getenv("EMAIL_FROM", "admin@ignia.site")
-        self.password  = os.getenv("EMAIL_PASSWORD", "")
+        self.from_addr = os.getenv("EMAIL_SMTP", "")
+        self.password  = os.getenv("APPPASSWORD", "")
 
     def is_configured(self) -> bool:
         return bool(self.from_addr and self.password)
