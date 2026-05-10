@@ -1,28 +1,28 @@
 """
-Lead model with SQLite persistence (stdlib sqlite3 — no extra dependencies).
-DB file: data/leads.db  (relative to repo root, created automatically).
+Lead model with MongoDB persistence via Motor (async).
+Lazy-initialized: connects on first use — safe for serverless (Netlify Functions).
 """
 
-import sqlite3
+import os
 import logging
 from dataclasses import dataclass
-from datetime import datetime
-from pathlib import Path
+from datetime import datetime, timezone
 from typing import Optional
 
-logger = logging.getLogger(__name__)
+from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorCollection
 
-DB_PATH = Path(__file__).resolve().parents[3] / "data" / "leads.db"
+logger = logging.getLogger(__name__)
 
 
 @dataclass
 class Lead:
-    id: int
+    id: str
     email: str
     name: Optional[str]
     phone: Optional[str]
     source: str
     whatsapp_notified: bool
+    email_sent: bool
     created_at: str
 
     def to_dict(self) -> dict:
@@ -33,99 +33,83 @@ class Lead:
             "phone": self.phone,
             "source": self.source,
             "whatsapp_notified": self.whatsapp_notified,
+            "email_sent": self.email_sent,
             "created_at": self.created_at,
         }
 
 
-def _row_to_lead(row: tuple) -> Lead:
+def _doc_to_lead(doc: dict) -> Lead:
     return Lead(
-        id=row[0],
-        email=row[1],
-        name=row[2],
-        phone=row[3],
-        source=row[4],
-        whatsapp_notified=bool(row[5]),
-        created_at=row[6],
+        id=str(doc["_id"]),
+        email=doc["email"],
+        name=doc.get("name"),
+        phone=doc.get("phone"),
+        source=doc.get("source", "taller"),
+        whatsapp_notified=bool(doc.get("whatsapp_notified", False)),
+        email_sent=bool(doc.get("email_sent", False)),
+        created_at=doc.get("created_at", ""),
     )
 
 
 class LeadStore:
-    """Thread-safe SQLite lead store."""
+    """Async MongoDB lead store. Thread-safe via Motor's internal connection pool."""
 
-    def __init__(self, db_path: Path = DB_PATH) -> None:
-        self.db_path = db_path
-        self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        self._init_db()
+    def __init__(self) -> None:
+        self._col: Optional[AsyncIOMotorCollection] = None
 
-    def _connect(self) -> sqlite3.Connection:
-        conn = sqlite3.connect(self.db_path, check_same_thread=False)
-        conn.row_factory = sqlite3.Row
-        return conn
+    async def _get_col(self) -> AsyncIOMotorCollection:
+        if self._col is None:
+            mongo_uri = os.getenv("MONGOURI", "")
+            if not mongo_uri:
+                raise RuntimeError("MONGOURI env var is not set")
+            client = AsyncIOMotorClient(mongo_uri, serverSelectionTimeoutMS=5000)
+            self._col = client["ignia"]["leads"]
+            await self._col.create_index("email", unique=True)
+            logger.info("LeadStore connected to MongoDB Atlas")
+        return self._col
 
-    def _init_db(self) -> None:
-        with self._connect() as conn:
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS leads (
-                    id                 INTEGER PRIMARY KEY AUTOINCREMENT,
-                    email              TEXT    UNIQUE NOT NULL,
-                    name               TEXT,
-                    phone              TEXT,
-                    source             TEXT    NOT NULL DEFAULT 'taller',
-                    whatsapp_notified  INTEGER NOT NULL DEFAULT 0,
-                    created_at         TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now'))
-                )
-            """)
-            conn.commit()
-        logger.info("LeadStore initialised at %s", self.db_path)
-
-    def upsert(
+    async def upsert(
         self,
         email: str,
         name: Optional[str] = None,
         phone: Optional[str] = None,
         source: str = "taller",
     ) -> tuple[Lead, bool]:
-        """
-        Insert a new lead or return the existing one.
-        Returns (lead, is_new).
-        """
-        with self._connect() as conn:
-            existing = conn.execute(
-                "SELECT id, email, name, phone, source, whatsapp_notified, created_at FROM leads WHERE email = ?",
-                (email.lower().strip(),),
-            ).fetchone()
+        col = await self._get_col()
+        email = email.lower().strip()
 
-            if existing:
-                return _row_to_lead(tuple(existing)), False
+        existing = await col.find_one({"email": email})
+        if existing:
+            return _doc_to_lead(existing), False
 
-            cursor = conn.execute(
-                "INSERT INTO leads (email, name, phone, source) VALUES (?, ?, ?, ?)",
-                (email.lower().strip(), name, phone, source),
-            )
-            conn.commit()
-            row = conn.execute(
-                "SELECT id, email, name, phone, source, whatsapp_notified, created_at FROM leads WHERE id = ?",
-                (cursor.lastrowid,),
-            ).fetchone()
-            return _row_to_lead(tuple(row)), True
+        doc = {
+            "email": email,
+            "name": name,
+            "phone": phone,
+            "source": source,
+            "whatsapp_notified": False,
+            "email_sent": False,
+            "created_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        }
+        result = await col.insert_one(doc)
+        doc["_id"] = result.inserted_id
+        return _doc_to_lead(doc), True
 
-    def mark_notified(self, lead_id: int) -> None:
-        with self._connect() as conn:
-            conn.execute("UPDATE leads SET whatsapp_notified = 1 WHERE id = ?", (lead_id,))
-            conn.commit()
+    async def mark_notified(self, email: str) -> None:
+        col = await self._get_col()
+        await col.update_one(
+            {"email": email},
+            {"$set": {"whatsapp_notified": True, "email_sent": True}},
+        )
 
-    def all(self, limit: int = 200) -> list[Lead]:
-        with self._connect() as conn:
-            rows = conn.execute(
-                "SELECT id, email, name, phone, source, whatsapp_notified, created_at FROM leads ORDER BY id DESC LIMIT ?",
-                (limit,),
-            ).fetchall()
-            return [_row_to_lead(tuple(r)) for r in rows]
+    async def all(self, limit: int = 200) -> list[Lead]:
+        col = await self._get_col()
+        cursor = col.find({}).sort("_id", -1).limit(limit)
+        return [_doc_to_lead(doc) async for doc in cursor]
 
-    def count(self) -> int:
-        with self._connect() as conn:
-            return conn.execute("SELECT COUNT(*) FROM leads").fetchone()[0]
+    async def count(self) -> int:
+        col = await self._get_col()
+        return await col.count_documents({})
 
 
-# Singleton
 lead_store = LeadStore()

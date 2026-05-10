@@ -717,122 +717,6 @@
   &__desc  { color: var(--text-muted); font-size: 0.84rem; line-height: 1.6; }
 }
 
-// ─── TALLER section ───────────────────────────────────────────────────────────
-.taller-section {
-  padding: 6rem 2rem;
-  background: var(--surface);
-}
-.taller-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-.taller-badge {
-  display: inline-block;
-  background: rgba(255,96,53,0.1);
-  border: 1px solid rgba(255,96,53,0.25);
-  color: var(--brand-orange);
-  padding: 0.35rem 0.9rem;
-  border-radius: 100px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  margin-bottom: 1.25rem;
-}
-.taller-info {
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    margin-bottom: 1.5rem;
-    line-height: 1.15;
-  }
-}
-.taller-bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-  li {
-    font-size: 0.95rem;
-    color: var(--text);
-    font-weight: 500;
-  }
-}
-.taller-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  span { font-size: 0.88rem; color: var(--text-muted); }
-}
-.taller-form-card {
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem;
-  box-shadow: var(--shadow-md);
-  h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
-}
-.form-sub { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem; }
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-  label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
-  input {
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-    font-family: var(--font-body);
-    color: var(--text);
-    background: var(--bg);
-    outline: none;
-    transition: border-color 0.2s;
-    &::placeholder { color: var(--text-muted); }
-    &:focus { border-color: rgba(255,96,53,0.5); }
-  }
-}
-.form-error { color: #e53e3e; font-size: 0.83rem; margin-bottom: 0.75rem; }
-.btn-primary--full { width: 100%; margin-top: 0.5rem; justify-content: center; }
-.form-legal { font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem; }
-.taller-success {
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  text-align: center;
-  box-shadow: var(--shadow-md);
-  .success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
-  h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-  p  { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
-}
-.whatsapp-cta {
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  p { font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.6; }
-}
-.btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: #25D366;
-  color: white;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.85rem 1.75rem;
-  border-radius: 100px;
-  transition: opacity 0.2s, transform 0.2s;
-  &:hover { opacity: 0.9; transform: translateY(-2px); }
-}
-.no-wa { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
-
 // ─── CTA SECTION ──────────────────────────────────────────────────────────────
 .cta-section {
   position: relative;
@@ -927,7 +811,6 @@
 }
 
 @media (max-width: 900px) {
-  .taller-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
   .proceso-steps { grid-template-columns: 1fr 1fr; }
   .dolor-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -944,5 +827,4 @@
   .proceso-steps { grid-template-columns: 1fr; }
   .dolor-grid { grid-template-columns: 1fr; }
   .solucion-grid { grid-template-columns: 1fr; }
-  .taller-wrapper { grid-template-columns: 1fr; }
 }

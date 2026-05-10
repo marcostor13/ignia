@@ -1,6 +1,7 @@
 """
 Lead capture API — POST /api/leads
-Saves lead to SQLite, notifies Ignia team via WhatsApp Cloud API.
+Saves lead to MongoDB, sends confirmation email to lead,
+notifies Ignia team via email + WhatsApp Cloud API.
 """
 
 import logging
@@ -12,6 +13,7 @@ from pydantic import BaseModel, EmailStr, field_validator
 
 from ..models.lead import lead_store
 from ..whatsapp.client import whatsapp
+from ..email_service.client import email_client
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/leads", tags=["leads"])
@@ -22,7 +24,7 @@ router = APIRouter(prefix="/api/leads", tags=["leads"])
 class LeadIn(BaseModel):
     email: EmailStr
     name: Optional[str] = None
-    phone: Optional[str] = None          # optional — to send them a WA welcome message
+    phone: Optional[str] = None
     source: str = "taller"
 
     @field_validator("name", "phone", mode="before")
@@ -41,34 +43,35 @@ class LeadOut(BaseModel):
     whatsapp_community_url: str
 
 
-# ── Background tasks ─────────────────────────────────────────────────────────
+# ── Background notifications ──────────────────────────────────────────────────
 
-async def _notify_and_welcome(lead_id: int, email: str, name: Optional[str], phone: Optional[str], source: str) -> None:
-    """Run after the HTTP response is sent."""
-    # 1. Notify team
-    result = await whatsapp.notify_new_lead(email=email, name=name, source=source)
-    if "error" not in result and not result.get("skipped"):
-        lead_store.mark_notified(lead_id)
-        logger.info("Team notified via WhatsApp for lead %s", lead_id)
-    else:
-        logger.warning("WhatsApp notify skipped/failed for lead %s: %s", lead_id, result)
+async def _notify_all(email: str, name: Optional[str], phone: Optional[str], source: str) -> None:
+    """Runs after the HTTP response is sent. Fires all notifications in parallel-ish."""
 
-    # 2. Welcome the lead if they gave their phone
+    # 1. Confirmation email to lead
+    await email_client.send_confirmation_to_lead(email=email, name=name)
+
+    # 2. Internal notification email to team
+    await email_client.notify_team_new_lead(email=email, name=name, source=source)
+
+    # 3. WhatsApp notification to team
+    wa_result = await whatsapp.notify_new_lead(email=email, name=name, source=source)
+    if "error" in wa_result or wa_result.get("skipped"):
+        logger.warning("WhatsApp team notify skipped/failed: %s", wa_result)
+
+    # 4. WhatsApp welcome to lead (only if they gave their phone)
     if phone:
         await whatsapp.send_welcome_to_lead(phone=phone, name=name)
+
+    # 5. Mark as notified in DB
+    await lead_store.mark_notified(email=email)
 
 
 # ── Routes ───────────────────────────────────────────────────────────────────
 
 @router.post("", response_model=LeadOut, status_code=201)
 async def create_lead(body: LeadIn, background_tasks: BackgroundTasks) -> LeadOut:
-    """
-    Register a lead for the free workshop.
-    - Persists to SQLite
-    - Triggers WhatsApp notification to the Ignia team (background)
-    - Returns the WhatsApp community URL
-    """
-    lead, is_new = lead_store.upsert(
+    lead, is_new = await lead_store.upsert(
         email=body.email,
         name=body.name,
         phone=body.phone,
@@ -77,8 +80,7 @@ async def create_lead(body: LeadIn, background_tasks: BackgroundTasks) -> LeadOu
 
     if is_new:
         background_tasks.add_task(
-            _notify_and_welcome,
-            lead_id=lead.id,
+            _notify_all,
             email=lead.email,
             name=lead.name,
             phone=lead.phone,
@@ -102,14 +104,15 @@ async def create_lead(body: LeadIn, background_tasks: BackgroundTasks) -> LeadOu
 @router.get("")
 async def list_leads(limit: int = 100) -> dict:
     """Admin endpoint — list all captured leads."""
-    leads = lead_store.all(limit=limit)
+    leads = await lead_store.all(limit=limit)
+    total = await lead_store.count()
     return {
-        "total": lead_store.count(),
+        "total": total,
         "leads": [l.to_dict() for l in leads],
     }
 
 
-# ── WhatsApp webhook (for receiving messages / Meta verification) ─────────────
+# ── WhatsApp webhook ──────────────────────────────────────────────────────────
 
 @router.get("/webhook")
 async def whatsapp_webhook_verify(
@@ -117,11 +120,6 @@ async def whatsapp_webhook_verify(
     hub_verify_token: str = "",
     hub_challenge: str = "",
 ) -> int:
-    """
-    Meta webhook verification endpoint.
-    Set this URL in Meta Business Manager → WhatsApp → Webhooks.
-    WHATSAPP_VERIFY_TOKEN must match what you set in Meta.
-    """
     verify_token = os.getenv("WHATSAPP_VERIFY_TOKEN", "ignia_verify_2024")
     if hub_mode == "subscribe" and hub_verify_token == verify_token:
         logger.info("WhatsApp webhook verified.")
@@ -131,6 +129,5 @@ async def whatsapp_webhook_verify(
 
 @router.post("/webhook")
 async def whatsapp_webhook_receive(payload: dict) -> dict:
-    """Receive incoming WhatsApp messages/status updates."""
     logger.info("WhatsApp webhook payload: %s", payload)
     return {"status": "ok"}

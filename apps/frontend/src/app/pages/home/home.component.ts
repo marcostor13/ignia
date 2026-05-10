@@ -11,6 +11,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 interface ChatMessage {
@@ -21,7 +22,7 @@ interface ChatMessage {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -36,14 +37,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   inputText = signal<string>('');
   isLoading = signal<boolean>(false);
   hasScrolled = signal<boolean>(false);
-
-  // ── Lead form signals ─────────────────────────────────────────────────────
-  email = signal<string>('');
-  formName = signal<string>('');
-  formSubmitted = signal<boolean>(false);
-  formLoading = signal<boolean>(false);
-  formError = signal<string>('');
-  communityUrl = signal<string>('');
 
   private observer: IntersectionObserver | null = null;
   private scrollHandler = () => {
@@ -216,33 +209,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     window.removeEventListener('scroll', this.scrollHandler);
     this.observer?.disconnect();
-  }
-
-  // ── Lead form ─────────────────────────────────────────────────────────────
-  submitLead(): void {
-    if (this.formLoading() || !this.email().trim()) return;
-
-    this.formLoading.set(true);
-    this.formError.set('');
-
-    this.http
-      .post<{ whatsapp_community_url?: string }>('/api/leads', {
-        email: this.email(),
-        name: this.formName(),
-        source: 'taller',
-      })
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (res) => {
-          this.formSubmitted.set(true);
-          this.communityUrl.set(res.whatsapp_community_url ?? '');
-          this.formLoading.set(false);
-        },
-        error: () => {
-          this.formError.set('Hubo un error. Intentá de nuevo.');
-          this.formLoading.set(false);
-        },
-      });
   }
 
   // ── Chat ──────────────────────────────────────────────────────────────────
