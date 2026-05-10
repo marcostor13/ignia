@@ -8,10 +8,18 @@ lifespan="off" is required because Netlify functions don't support lifespan even
 import sys
 import os
 
-# Ensure the backend package is importable from the Netlify function context
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../apps/backend"))
+_here = os.path.dirname(os.path.abspath(__file__))
+
+# Try both possible paths:
+# - "../../apps"  works when Netlify preserves dir structure (netlify/functions/api.py)
+# - "apps"        works when Netlify strips the prefix (api.py at Lambda root)
+for _rel in (os.path.join("..", "..", "apps"), "apps"):
+    _p = os.path.normpath(os.path.join(_here, _rel))
+    if os.path.isdir(os.path.join(_p, "backend")):
+        sys.path.insert(0, _p)
+        break
 
 from mangum import Mangum
-from api.main import app
+from backend.api.main import app
 
 handler = Mangum(app, lifespan="off")
