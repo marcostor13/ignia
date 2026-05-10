@@ -19,7 +19,10 @@
       "Bash(npm start *)",
       "Bash(Test-Path *)",
       "Bash(curl -s http://localhost:8000/health)",
-      "Bash(curl *)"
+      "Bash(curl *)",
+      "Bash(dir \"C:\\\\Marcos\\\\Proyectos\\\\Ignia\\\\ignia\\\\netlify\")",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
