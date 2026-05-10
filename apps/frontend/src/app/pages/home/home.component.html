@@ -1,0 +1,387 @@
+<!-- ── 1. NAV ─────────────────────────────────────────────────────────────────── -->
+<nav class="nav" [class.nav--scrolled]="hasScrolled()">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      <img src="/Satochi.png" alt="Ignia" height="36" />
+    </a>
+    <ul class="nav__links">
+      <li><a (click)="scrollTo('proyectos')">Proyectos</a></li>
+      <li><a (click)="scrollTo('nosotros')">Nosotros</a></li>
+      <li>
+        <a (click)="scrollTo('contacto')" class="nav__cta">Empecemos →</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── 2. HERO ────────────────────────────────────────────────────────────────── -->
+<section id="hero" class="hero">
+  <div class="hero__blob hero__blob--1"></div>
+  <div class="hero__blob hero__blob--2"></div>
+
+  <div class="hero__container">
+    <!-- Left: headline + CTA -->
+    <div class="hero__left">
+      <h1 class="hero__title reveal reveal-delay-1">
+        Webs y plataformas<br />
+        <span class="gradient-text">hechas para crecer.</span>
+      </h1>
+      <p class="hero__sub reveal reveal-delay-2">
+        Construimos aplicaciones a medida con tecnología moderna.
+        Desde la planificación hasta la mejora continua, estamos contigo en cada etapa.
+      </p>
+      <div class="hero__actions reveal reveal-delay-3">
+        <button class="btn-primary" (click)="scrollTo('taller')">
+          Quiero mi web gratis →
+        </button>
+        <button class="btn-ghost" (click)="scrollTo('proyectos')">
+          Ver proyectos
+        </button>
+      </div>
+      <div class="hero__trust reveal reveal-delay-4">
+        <span class="trust-item">✓ Sin costo inicial</span>
+        <span class="trust-item">✓ Primera consulta gratis</span>
+        <span class="trust-item">✓ Respuesta en 24h</span>
+      </div>
+    </div>
+
+    <!-- Right: AI Chat Widget -->
+    <div class="hero__right reveal reveal-delay-2" id="chat">
+      <div class="chat-widget">
+        <div class="chat-widget__header">
+          <div class="chat-widget__avatar">
+            <img src="/Satochi.png" alt="Ignia AI" />
+          </div>
+          <div class="chat-widget__info">
+            <span class="chat-widget__name">Asistente Ignia</span>
+            <span class="chat-widget__status">
+              <span class="status-dot"></span> En línea
+            </span>
+          </div>
+          <div class="chat-widget__badge">IA</div>
+        </div>
+
+        <div class="chat-widget__messages chat-scroll" #chatContainer>
+          @for (msg of messages(); track trackByFn($index)) {
+            <div
+              class="msg"
+              [class.msg--user]="msg.role === 'user'"
+              [class.msg--assistant]="msg.role === 'assistant'"
+            >
+              @if (msg.role === 'assistant') {
+                <div class="msg__avatar">
+                  <img src="/Satochi.png" alt="AI" />
+                </div>
+              }
+              <div class="msg__bubble">{{ msg.content }}</div>
+            </div>
+          }
+          @if (isLoading()) {
+            <div class="msg msg--assistant">
+              <div class="msg__avatar">
+                <img src="/Satochi.png" alt="AI" />
+              </div>
+              <div class="msg__bubble msg__bubble--typing">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="chat-widget__input">
+          <input
+            [ngModel]="inputText()"
+            (ngModelChange)="inputText.set($event)"
+            (keydown.enter)="sendMessage()"
+            placeholder="Escribe tu pregunta..."
+            [disabled]="isLoading()"
+          />
+          <button
+            class="send-btn"
+            (click)="sendMessage()"
+            [disabled]="isLoading() || !inputText().trim()"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3. DOLOR ───────────────────────────────────────────────────────────────── -->
+<section class="dolor-section">
+  <div class="section__container">
+    <div class="dolor-intro reveal">
+      <span class="section-eyebrow">El problema</span>
+      <h2>¿Tu negocio necesita<br /><span class="gradient-text">más presencia digital?</span></h2>
+      <p>Miles de negocios pierden clientes cada día por no tener la herramienta digital correcta.</p>
+    </div>
+    <div class="dolor-grid">
+      @for (point of painPoints; track point.text) {
+        <div class="dolor-card reveal">
+          <span class="dolor-card__icon">{{ point.icon }}</span>
+          <p class="dolor-card__text">{{ point.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. SOLUCIÓN ────────────────────────────────────────────────────────────── -->
+<section class="solucion-section">
+  <div class="section__container">
+    <div class="solucion-content reveal">
+      <span class="section-eyebrow">La solución</span>
+      <h2>Una web a medida que<br /><span class="gradient-text">trabaja por vos 24/7.</span></h2>
+      <p>En Ignia construimos desde cero la herramienta digital exacta que tu negocio necesita, sin templates genéricos ni soluciones de cookie-cutter.</p>
+    </div>
+    <div class="solucion-grid">
+      @for (benefit of benefits; track benefit.title) {
+        <div class="solucion-card reveal">
+          <span class="solucion-card__icon">{{ benefit.icon }}</span>
+          <h3 class="solucion-card__title">{{ benefit.title }}</h3>
+          <p class="solucion-card__desc">{{ benefit.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. PROYECTOS ───────────────────────────────────────────────────────────── -->
+<section id="proyectos" class="section">
+  <div class="section__container">
+    <div class="section__header reveal">
+      <span class="section__num">01</span>
+      <div>
+        <h2 class="section__title">Proyectos realizados</h2>
+        <p class="section__sub">Soluciones a medida que marcan la diferencia.</p>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.title) {
+        <div class="project-card reveal" [style.transition-delay]="$index * 0.1 + 's'">
+          <div class="project-card__img" [style.background]="project.gradient">
+            <span class="project-card__icon">{{ project.icon }}</span>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__category">{{ project.category }}</span>
+            <h3 class="project-card__title">{{ project.title }}</h3>
+            <p class="project-card__desc">{{ project.description }}</p>
+            <div class="project-card__tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. PROCESO ─────────────────────────────────────────────────────────────── -->
+<section id="proceso" class="section section--alt">
+  <div class="section__container">
+    <div class="section__header reveal">
+      <span class="section__num">02</span>
+      <div>
+        <h2 class="section__title">Cómo trabajamos</h2>
+        <p class="section__sub">Un proceso claro, transparente y orientado a resultados.</p>
+      </div>
+    </div>
+
+    <div class="proceso-steps">
+      @for (step of processSteps; track step.num) {
+        <div class="proceso-step reveal" [style.transition-delay]="$index * 0.08 + 's'">
+          <div class="proceso-step__num">{{ step.num }}</div>
+          <div class="proceso-step__icon">{{ step.icon }}</div>
+          <h3 class="proceso-step__title">{{ step.title }}</h3>
+          <p class="proceso-step__desc">{{ step.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── 7. TALLER GRATUITO ─────────────────────────────────────────────────────── -->
+<section id="taller" class="taller-section">
+  <div class="section__container">
+    <div class="taller-wrapper reveal">
+
+      <!-- Left: info -->
+      <div class="taller-info">
+        <span class="taller-badge">🎓 Taller gratuito</span>
+        <h2>Descubrí cómo crear tu presencia digital en 30 días</h2>
+        <ul class="taller-bullets">
+          <li>✓ Qué tecnología usar según tu tipo de negocio</li>
+          <li>✓ Cómo planificar tu web sin gastar de más</li>
+          <li>✓ Los 5 errores que cometen el 90% de los negocios online</li>
+          <li>✓ Casos reales de negocios que transformamos</li>
+        </ul>
+        <div class="taller-meta">
+          <span>📅 Fecha: Por confirmar</span>
+          <span>⏱ Duración: 60 minutos</span>
+          <span>💻 Modalidad: Online y gratuito</span>
+        </div>
+      </div>
+
+      <!-- Right: form or success -->
+      <div class="taller-form-wrapper">
+
+        @if (!formSubmitted()) {
+          <div class="taller-form-card">
+            <h3>Reservá tu lugar gratis</h3>
+            <p class="form-sub">Solo necesitamos tu correo. Sin spam, prometido.</p>
+
+            <div class="form-group">
+              <label for="form-name">Tu nombre</label>
+              <input
+                id="form-name"
+                type="text"
+                placeholder="María García"
+                [ngModel]="formName()"
+                (ngModelChange)="formName.set($event)"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="form-email">Tu correo electrónico *</label>
+              <input
+                id="form-email"
+                type="email"
+                placeholder="tu@email.com"
+                required
+                [ngModel]="email()"
+                (ngModelChange)="email.set($event)"
+                (keydown.enter)="submitLead()"
+              />
+            </div>
+
+            @if (formError()) {
+              <p class="form-error">{{ formError() }}</p>
+            }
+
+            <button
+              class="btn-primary btn-primary--full"
+              (click)="submitLead()"
+              [disabled]="formLoading() || !email().trim()"
+            >
+              @if (formLoading()) {
+                Registrando...
+              } @else {
+                Reservar mi lugar gratis →
+              }
+            </button>
+
+            <p class="form-legal">Sin spam. Podés darte de baja cuando quieras.</p>
+          </div>
+        }
+
+        @if (formSubmitted()) {
+          <div class="taller-success">
+            <span class="success-icon">🎉</span>
+            <h3>¡Tu lugar está reservado!</h3>
+            <p>Te enviamos la confirmación a <strong>{{ email() }}</strong></p>
+
+            <div class="whatsapp-cta">
+              <p>Mientras tanto, unite a nuestra comunidad de WhatsApp donde compartimos tips, recursos y anunciamos la fecha del taller:</p>
+              @if (communityUrl()) {
+                <a [href]="communityUrl()" target="_blank" rel="noopener" class="btn-whatsapp">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  Unirme a la comunidad de WhatsApp
+                </a>
+              } @else {
+                <p class="no-wa">El link de la comunidad estará disponible próximamente. ¡Te avisamos por email!</p>
+              }
+            </div>
+          </div>
+        }
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 8. POR QUÉ ELEGIRNOS ───────────────────────────────────────────────────── -->
+<section id="nosotros" class="section section--alt">
+  <div class="section__container">
+    <div class="section__header reveal">
+      <span class="section__num">04</span>
+      <div>
+        <h2 class="section__title">¿Por qué elegirnos?</h2>
+        <p class="section__sub">Más que desarrollo: una alianza para tu crecimiento.</p>
+      </div>
+    </div>
+
+    <div class="pillars-grid">
+      @for (pillar of pillars; track pillar.title) {
+        <div class="pillar reveal" [class]="'reveal-delay-' + ($index + 1)">
+          <div class="pillar__icon">{{ pillar.icon }}</div>
+          <span class="pillar__num">0{{ $index + 1 }}</span>
+          <h3 class="pillar__title">{{ pillar.title }}</h3>
+          <p class="pillar__desc">{{ pillar.description }}</p>
+        </div>
+      }
+    </div>
+
+    <!-- Process timeline -->
+    <div class="process reveal">
+      @for (step of process; track step.label) {
+        <div class="process__step">
+          <div class="process__dot"></div>
+          <span class="process__label">{{ step.label }}</span>
+        </div>
+        @if (!$last) {
+          <div class="process__line"></div>
+        }
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── 9. CTA FINAL ───────────────────────────────────────────────────────────── -->
+<section id="contacto" class="cta-section">
+  <div class="cta-section__bg"></div>
+  <div class="cta-section__content reveal">
+    <h2 class="cta-section__title">
+      ¿Listo para construir<br />
+      <span class="gradient-text">algo extraordinario?</span>
+    </h2>
+    <p class="cta-section__sub">
+      Agenda una llamada gratuita de 30 minutos. Sin compromiso.
+    </p>
+    <div class="cta-section__actions">
+      <button class="btn-primary btn-primary--lg" (click)="scrollTo('taller')">
+        Reservar taller gratis
+      </button>
+      <a href="mailto:hola@ignia.dev" class="btn-ghost">hola@ignia.dev →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 10. FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="/Satochi.png" alt="Ignia" height="32" />
+      <span>Ignia</span>
+    </div>
+    <p class="footer__copy">© 2025 Ignia. Desarrollo web a medida.</p>
+    <div class="footer__links">
+      <a href="mailto:hola@ignia.dev">Contacto</a>
+      <a (click)="scrollTo('proyectos')">Proyectos</a>
+    </div>
+  </div>
+</footer>

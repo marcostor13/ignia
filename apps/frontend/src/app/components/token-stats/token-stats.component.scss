@@ -1,0 +1,340 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 60px);
+  background: var(--bg);
+}
+
+.stats-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+
+  @media (max-width: 600px) {
+    padding: 20px 16px 32px;
+  }
+}
+
+// ─── Header ──────────────────────────────────────────────────────────────────
+
+.stats-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  &__left {
+    flex: 1;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 6px;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  &__updated {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    padding-top: 6px;
+  }
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e88;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+// ─── Error / Loading ─────────────────────────────────────────────────────────
+
+.stats-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: color-mix(in srgb, #f87171 8%, transparent);
+  border: 1px solid color-mix(in srgb, #f87171 25%, transparent);
+  color: #f87171;
+  font-size: 0.875rem;
+  margin-bottom: 24px;
+}
+
+.stats-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 40px 0;
+  justify-content: center;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// ─── Savings Hero ─────────────────────────────────────────────────────────────
+
+.savings-hero {
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--primary) 12%, var(--surface)),
+    color-mix(in srgb, #22c55e 8%, var(--surface))
+  );
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border));
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  margin-bottom: 28px;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  &__percent {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 16px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__detail {
+    margin: 10px 0 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+}
+
+// ─── Savings Progress Bar ─────────────────────────────────────────────────────
+
+.savings-progress {
+  height: 10px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+
+  &__bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), #22c55e);
+    border-radius: 99px;
+    transition: width 0.8s ease;
+  }
+}
+
+// ─── Stats Grid ───────────────────────────────────────────────────────────────
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// ─── Stat Card ────────────────────────────────────────────────────────────────
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  &__icon {
+    color: var(--text-muted);
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+  }
+
+  &__value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  &--primary {
+    border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+    .stat-card__icon { color: var(--primary); }
+    .stat-card__value { color: var(--primary); }
+  }
+
+  &--cached {
+    border-color: color-mix(in srgb, #7c3aed 30%, var(--border));
+    .stat-card__icon { color: #a78bfa; }
+    .stat-card__value { color: #a78bfa; }
+  }
+
+  &--saved {
+    border-color: color-mix(in srgb, #22c55e 30%, var(--border));
+    .stat-card__icon { color: #4ade80; }
+    .stat-card__value { color: #4ade80; }
+  }
+
+  &--cost {
+    .stat-card__icon { color: #fbbf24; }
+    .stat-card__value { color: #fbbf24; }
+  }
+
+  &--records {
+    .stat-card__icon { color: #60a5fa; }
+    .stat-card__value { color: #60a5fa; }
+  }
+}
+
+// ─── Bar Chart ────────────────────────────────────────────────────────────────
+
+.bar-chart-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+
+  &__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 20px;
+  }
+}
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 70px;
+  align-items: center;
+  gap: 12px;
+
+  &__label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  &__track {
+    height: 8px;
+    background: var(--surface-raised);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.8s ease;
+    min-width: 4px;
+  }
+
+  &__value {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+}
+
+// ─── Savings Explainer ────────────────────────────────────────────────────────
+
+.savings-explainer {
+  display: flex;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  align-items: flex-start;
+
+  &__icon {
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &__content {
+    strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+  }
+}

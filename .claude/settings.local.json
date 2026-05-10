@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "Bash(npm --version)",
+      "Bash(npx @angular/cli@latest version)",
+      "Bash(pip --version)",
+      "Bash(pip show *)",
+      "Bash(npx @angular/cli@latest new frontend --directory apps/frontend --routing=true --style=scss --ssr=false --standalone=true --skip-git=true --skip-tests=false --package-manager=npm)",
+      "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\('Angular version:', p['dependencies']['@angular/core']\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(npx ng *)",
+      "Bash(npm run *)",
+      "Bash(python *)",
+      "Bash(pip install *)",
+      "Bash(npm install *)",
+      "WebFetch(domain:bkkdw26.greydientlab.com)",
+      "Bash(npm start *)",
+      "Bash(Test-Path *)",
+      "Bash(curl -s http://localhost:8000/health)",
+      "Bash(curl *)"
+    ]
+  }
+}

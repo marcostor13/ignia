@@ -1,0 +1,37 @@
+[build]
+  command = "cd apps/frontend && npm ci && npm run build"
+  publish = "apps/frontend/dist/frontend/browser"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "24"
+  PYTHON_VERSION = "3.13"
+
+# Proxy all /api/* requests to the Python function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# SPA fallback — all other routes go to Angular's index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
+  included_files = [
+    "apps/backend/**",
+  ]
+
+[functions.api]
+  external_node_modules = []
+
+[dev]
+  command = "cd apps/frontend && npm start"
+  targetPort = 4200
+  port = 8888
+  publish = "apps/frontend/dist/frontend/browser"
+  autoLaunch = false

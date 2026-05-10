@@ -1,0 +1,192 @@
+<div class="compressor-page">
+  <div class="compressor-header">
+    <h1 class="compressor-header__title">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="4 14 10 14 10 20"/>
+        <polyline points="20 10 14 10 14 4"/>
+        <line x1="14" y1="10" x2="21" y2="3"/>
+        <line x1="3" y1="21" x2="10" y2="14"/>
+      </svg>
+      Prompt Compressor
+    </h1>
+    <p class="compressor-header__subtitle">
+      Reduce token count in your prompts by removing filler words, redundant phrases, and unnecessary verbosity
+      while preserving semantic meaning.
+    </p>
+  </div>
+
+  <div class="compressor-layout">
+    <!-- Input Panel -->
+    <div class="panel">
+      <div class="panel__header">
+        <span class="panel__title">Original Prompt</span>
+        <div class="panel__actions">
+          <button class="action-btn" (click)="loadSample()" title="Load sample text">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Sample
+          </button>
+          @if (inputText()) {
+            <button class="action-btn action-btn--danger" (click)="clear()" title="Clear all">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+              Clear
+            </button>
+          }
+        </div>
+      </div>
+      <textarea
+        class="panel__textarea"
+        [value]="inputText()"
+        (input)="inputText.set($any($event.target).value)"
+        placeholder="Paste your prompt here… The compressor will remove filler words, redundant qualifiers, and unnecessary verbosity while keeping the core intent intact."
+        rows="12"
+        aria-label="Original prompt input"
+      ></textarea>
+      <div class="panel__footer">
+        <span class="panel__char-count">
+          {{ inputText().length }} characters
+        </span>
+        <button
+          class="btn btn-primary"
+          (click)="compress()"
+          [disabled]="!canCompress()"
+        >
+          @if (isLoading()) {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spinning">
+              <polyline points="23 4 23 10 17 10"/>
+              <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+            </svg>
+            Compressing…
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="4 14 10 14 10 20"/>
+              <polyline points="20 10 14 10 14 4"/>
+              <line x1="14" y1="10" x2="21" y2="3"/>
+              <line x1="3" y1="21" x2="10" y2="14"/>
+            </svg>
+            Compress Prompt
+          }
+        </button>
+      </div>
+    </div>
+
+    <!-- Result Panel -->
+    <div class="panel" [class.panel--has-result]="!!result()">
+      <div class="panel__header">
+        <span class="panel__title">Compressed Prompt</span>
+        @if (result()) {
+          <button
+            class="action-btn"
+            (click)="copyToClipboard(result()!.compressed)"
+            title="Copy to clipboard"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+            </svg>
+            Copy
+          </button>
+        }
+      </div>
+
+      @if (!result() && !isLoading() && !error()) {
+        <div class="panel__empty">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="4 14 10 14 10 20"/>
+            <polyline points="20 10 14 10 14 4"/>
+            <line x1="14" y1="10" x2="21" y2="3"/>
+            <line x1="3" y1="21" x2="10" y2="14"/>
+          </svg>
+          <p>Compressed text will appear here</p>
+        </div>
+      }
+
+      @if (isLoading()) {
+        <div class="panel__empty">
+          <div class="compress-spinner"></div>
+          <p>Analyzing and compressing…</p>
+        </div>
+      }
+
+      @if (error() && result()) {
+        <div class="panel__error-notice">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Backend unavailable — showing simulated result
+        </div>
+      }
+
+      @if (result(); as r) {
+        <!-- Stats Row -->
+        <div class="compression-stats">
+          <div class="compression-stat">
+            <div class="compression-stat__value">{{ r.original_tokens }}</div>
+            <div class="compression-stat__label">Original tokens</div>
+          </div>
+          <div class="compression-stat__arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+          <div class="compression-stat">
+            <div class="compression-stat__value compression-stat__value--green">{{ r.compressed_tokens }}</div>
+            <div class="compression-stat__label">Compressed tokens</div>
+          </div>
+          <div class="compression-stat compression-stat--highlight">
+            <div class="compression-stat__value compression-stat__value--green">
+              {{ savingsPercent() | number:'1.1-1' }}%
+            </div>
+            <div class="compression-stat__label">Size reduction</div>
+          </div>
+          <div class="compression-stat">
+            <div class="compression-stat__value compression-stat__value--purple">{{ savedTokens() }}</div>
+            <div class="compression-stat__label">Tokens saved</div>
+          </div>
+        </div>
+
+        <!-- Ratio Progress -->
+        <div class="ratio-bar">
+          <div class="ratio-bar__label">
+            Compression ratio: {{ r.ratio | number:'1.2-2' }}x
+          </div>
+          <div class="ratio-bar__track">
+            <div
+              class="ratio-bar__fill"
+              [style.width.%]="savingsPercent()"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Compressed Text -->
+        <div class="panel__result">
+          <pre class="panel__result-text">{{ r.compressed }}</pre>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="tips-section">
+    <h2 class="tips-section__title">Tips for Better Compression</h2>
+    <div class="tips-grid">
+      @for (tip of tips; track tip.title) {
+        <div class="tip-card">
+          <div class="tip-card__icon">{{ tip.icon }}</div>
+          <div class="tip-card__content">
+            <strong>{{ tip.title }}</strong>
+            <p>{{ tip.text }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

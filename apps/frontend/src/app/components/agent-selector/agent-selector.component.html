@@ -1,0 +1,87 @@
+<div class="agent-selector">
+  <div class="agent-selector__header">
+    <h2 class="agent-selector__title">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+      Agents
+    </h2>
+    <button class="refresh-btn" (click)="loadAgents()" title="Refresh agents" [disabled]="isLoading()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           [class.spinning]="isLoading()">
+        <polyline points="23 4 23 10 17 10"/>
+        <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+      </svg>
+    </button>
+  </div>
+
+  @if (isLoading() && agents().length === 0) {
+    <div class="agent-selector__loading">
+      @for (i of [1, 2, 3]; track i) {
+        <div class="skeleton-agent">
+          <div class="skeleton-line skeleton-line--title"></div>
+          <div class="skeleton-line skeleton-line--desc"></div>
+          <div class="skeleton-chips">
+            <div class="skeleton-chip"></div>
+            <div class="skeleton-chip"></div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (error() && agents().length === 0) {
+    <div class="agent-selector__error">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p>{{ error() }}</p>
+    </div>
+  }
+
+  <ul class="agent-list" role="listbox" aria-label="Available agents">
+    @for (agent of agents(); track agent.id) {
+      <li
+        class="agent-card"
+        [class.agent-card--active]="isSelected(agent)"
+        role="option"
+        [attr.aria-selected]="isSelected(agent)"
+        (click)="selectAgent(agent)"
+        (keydown.enter)="selectAgent(agent)"
+        tabindex="0"
+      >
+        <div class="agent-card__top">
+          <div class="agent-card__avatar" [class]="'agent-avatar ' + getModelClass(agent.model)">
+            {{ agent.name.charAt(0) }}
+          </div>
+          <div class="agent-card__info">
+            <span class="agent-card__name">{{ agent.name }}</span>
+            <span class="agent-model-badge" [class]="getModelClass(agent.model)">
+              {{ getModelLabel(agent.model) }}
+            </span>
+          </div>
+          @if (isSelected(agent)) {
+            <div class="agent-card__check" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+          }
+        </div>
+
+        <p class="agent-card__description">{{ agent.description }}</p>
+
+        @if (agent.skills && agent.skills.length > 0) {
+          <div class="agent-card__skills">
+            @for (skill of agent.skills; track skill) {
+              <span class="chip">{{ skill }}</span>
+            }
+          </div>
+        }
+      </li>
+    }
+  </ul>
+</div>
