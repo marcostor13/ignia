@@ -6,27 +6,38 @@ import sys
 import os
 
 _here = os.path.dirname(os.path.abspath(__file__))
-print(f"[api] __file__={__file__} _here={_here}")
-print(f"[api] cwd={os.getcwd()}")
-print(f"[api] listdir(_here)={os.listdir(_here)[:20]}")
+print(f"[api] _here={_here} cwd={os.getcwd()}")
 
-# Try both possible paths:
-# - "../../apps"  works when Netlify preserves dir structure (netlify/functions/api.py)
-# - "apps"        works when Netlify strips the prefix (api.py at Lambda root)
-_resolved = False
+# Resolve apps/ directory — two possible layouts in Lambda:
+# 1. netlify/functions/api.py → ../../apps
+# 2. api.py at Lambda root   → ./apps
 for _rel in (os.path.join("..", "..", "apps"), "apps"):
     _p = os.path.normpath(os.path.join(_here, _rel))
     if os.path.isdir(os.path.join(_p, "backend")):
         sys.path.insert(0, _p)
-        print(f"[api] sys.path inserted: {_p}")
-        _resolved = True
+        print(f"[api] sys.path → {_p}")
         break
+else:
+    print(f"[api] ERROR: apps/backend not found. _here={_here}")
+    print(f"[api] contents: {os.listdir(_here)[:30]}")
 
-if not _resolved:
-    print(f"[api] ERROR: could not find apps/backend. Searched: {_here}")
+try:
+    from mangum import Mangum
+    from backend.api.main import app
+    print("[api] import OK")
+    _mangum = Mangum(app, lifespan="off")
+except Exception as exc:
+    import traceback
+    print(f"[api] import FAILED: {exc}")
+    traceback.print_exc()
+    _mangum = None
 
-from mangum import Mangum
-from backend.api.main import app
 
-print("[api] FastAPI app loaded OK")
-handler = Mangum(app, lifespan="off")
+def handler(event, context):
+    if _mangum is None:
+        return {
+            "statusCode": 500,
+            "body": '{"detail":"Backend failed to load"}',
+            "headers": {"Content-Type": "application/json"},
+        }
+    return _mangum(event, context)
