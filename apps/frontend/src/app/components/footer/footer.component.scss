@@ -1,0 +1,119 @@
+$ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+.site-footer {
+  background: #0D0D0D;
+  color: #fff;
+  padding-top: 5rem;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  &__brand {
+    p {
+      font-family: var(--font-body);
+      font-size: 0.87rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+      margin: 1rem 0;
+    }
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+
+    img { height: 24px; filter: brightness(0) invert(1); }
+
+    span {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+  }
+
+  &__email {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 0.87rem;
+    font-weight: 500;
+    color: var(--brand-red);
+    text-decoration: none;
+    transition: opacity 0.2s $ease;
+    &:hover { opacity: 0.8; }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    a {
+      font-family: var(--font-body);
+      font-size: 0.87rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s $ease;
+      &:hover { color: #fff; }
+    }
+  }
+
+  &__label {
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 0.25rem;
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 1.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    span {
+      font-family: var(--font-body);
+      font-size: 0.76rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.2);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .site-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

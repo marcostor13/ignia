@@ -1,0 +1,305 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Ignia" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Ignia" [ref=e7]
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - button "Servicios ▾" [ref=e10] [cursor=pointer]:
+            - text: Servicios
+            - generic [ref=e11]: ▾
+          - generic:
+            - link "🌐 Plataformas Web Apps y sitios a medida":
+              - /url: /servicios/plataformas-web
+              - generic: 🌐
+              - generic:
+                - strong: Plataformas Web
+                - generic: Apps y sitios a medida
+            - link "🧠 Consultoría & IA Estrategia y transformación digital":
+              - /url: /servicios/consultoria-ti
+              - generic: 🧠
+              - generic:
+                - strong: Consultoría & IA
+                - generic: Estrategia y transformación digital
+            - link "⚙️ Automatización Procesos eficientes a escala":
+              - /url: /servicios/automatizacion
+              - generic: ⚙️
+              - generic:
+                - strong: Automatización
+                - generic: Procesos eficientes a escala
+        - listitem [ref=e12]:
+          - link "Proyectos" [ref=e13] [cursor=pointer]:
+            - /url: /proyectos
+      - generic [ref=e14]:
+        - link "hola@ignia.dev" [ref=e15] [cursor=pointer]:
+          - /url: mailto:hola@ignia.dev
+        - link "Empezar" [ref=e16] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+          - text: Empezar
+          - img [ref=e17]
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - heading "Transformamos empresas con tecnología que funciona." [level=1] [ref=e24]:
+        - emphasis [ref=e26]: Transformamos
+        - emphasis [ref=e28]: empresas con
+        - emphasis [ref=e30]: tecnología
+        - emphasis [ref=e32]: que funciona.
+      - paragraph [ref=e33]: Desarrollo web, consultoría de TI, inteligencia artificial y automatización de procesos para empresas que quieren crecer.
+      - generic [ref=e34]:
+        - link "Ver servicios" [ref=e35] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+          - text: Ver servicios
+          - img [ref=e36]
+        - link "Ver proyectos" [ref=e38] [cursor=pointer]:
+          - /url: /proyectos
+      - generic [ref=e39]:
+        - generic [ref=e40]: ✓ Primera consulta gratis
+        - generic [ref=e41]: ✓ Sin costo inicial
+        - generic [ref=e42]: ✓ Respuesta en 24h
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - img "Ignia AI" [ref=e47]
+        - generic [ref=e48]:
+          - generic [ref=e49]: Asistente Ignia
+          - generic [ref=e50]: En línea
+        - generic [ref=e52]: IA
+      - generic [ref=e54]:
+        - img "AI" [ref=e56]
+        - generic [ref=e57]: ¡Hola! Soy el asistente de Ignia. ¿En qué puedo ayudarte hoy? Cuéntame sobre tu proyecto.
+      - generic [ref=e58]:
+        - textbox "Cuéntame sobre tu proyecto..." [ref=e59]
+        - button [disabled] [ref=e60]:
+          - img [ref=e61]
+  - generic [ref=e64]:
+    - generic [ref=e65]:
+      - generic [ref=e66]: 4+
+      - generic [ref=e67]: Años de experiencia
+    - generic [ref=e69]:
+      - generic [ref=e70]: 30+
+      - generic [ref=e71]: Proyectos entregados
+    - generic [ref=e73]:
+      - generic [ref=e74]: 100%
+      - generic [ref=e75]: Clientes satisfechos
+    - generic [ref=e77]:
+      - generic [ref=e78]: 3x
+      - generic [ref=e79]: ROI promedio en automatización
+  - generic [ref=e81]:
+    - generic [ref=e82]:
+      - generic [ref=e83]: Lo que hacemos
+      - heading "Tres servicios, un solo socio tecnológico." [level=2] [ref=e84]:
+        - text: Tres servicios,
+        - text: un solo socio tecnológico.
+      - paragraph [ref=e85]: "Cubrimos el ciclo completo de transformación digital: desde la plataforma web hasta la automatización de procesos internos."
+    - generic [ref=e86]:
+      - link "01 Desarrollo de Plataformas Web Aplicaciones web a medida que convierten y escalan. Ver servicio" [ref=e87] [cursor=pointer]:
+        - /url: /servicios/plataformas-web
+        - generic [ref=e89]:
+          - generic [ref=e90]: "01"
+          - heading "Desarrollo de Plataformas Web" [level=3] [ref=e91]
+          - paragraph [ref=e92]: Aplicaciones web a medida que convierten y escalan.
+          - generic [ref=e93]:
+            - text: Ver servicio
+            - img [ref=e94]
+      - link "02 Consultoría de TI, IA y Automatización Estrategia tecnológica e inteligencia artificial para crecer más rápido. Ver servicio" [ref=e96] [cursor=pointer]:
+        - /url: /servicios/consultoria-ti
+        - generic [ref=e98]:
+          - generic [ref=e99]: "02"
+          - heading "Consultoría de TI, IA y Automatización" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Estrategia tecnológica e inteligencia artificial para crecer más rápido.
+          - generic [ref=e102]:
+            - text: Ver servicio
+            - img [ref=e103]
+      - link "03 Automatización de Procesos para Empresas Elimina el trabajo manual que frena a tu empresa. Ver servicio" [ref=e105] [cursor=pointer]:
+        - /url: /servicios/automatizacion
+        - generic [ref=e107]:
+          - generic [ref=e108]: "03"
+          - heading "Automatización de Procesos para Empresas" [level=3] [ref=e109]
+          - paragraph [ref=e110]: Elimina el trabajo manual que frena a tu empresa.
+          - generic [ref=e111]:
+            - text: Ver servicio
+            - img [ref=e112]
+  - generic [ref=e115]:
+    - generic [ref=e116]:
+      - generic [ref=e117]: Proyectos
+      - generic [ref=e118]:
+        - heading "Resultados reales para empresas reales." [level=2] [ref=e119]:
+          - text: Resultados reales
+          - text: para empresas reales.
+        - link "Ver todos los proyectos →" [ref=e120] [cursor=pointer]:
+          - /url: /proyectos
+    - generic [ref=e121]:
+      - link "01 Fintech Angular FastAPI +63% Adopción digital $2.4M USD Ahorro operacional anual Plataforma Web 2024 FinConnect Portal de banca digital para 120.000 clientes activos. Ver caso completo" [ref=e122] [cursor=pointer]:
+        - /url: /proyectos/finconnect
+        - generic [ref=e123]:
+          - generic [ref=e124]: "01"
+          - generic [ref=e125]:
+            - generic [ref=e126]: Fintech
+            - generic [ref=e127]: Angular
+            - generic [ref=e128]: FastAPI
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - strong [ref=e132]: +63%
+              - generic [ref=e133]: Adopción digital
+            - generic [ref=e134]:
+              - strong [ref=e135]: $2.4M USD
+              - generic [ref=e136]: Ahorro operacional anual
+        - generic [ref=e137]:
+          - generic [ref=e138]:
+            - generic [ref=e139]: Plataforma Web
+            - generic [ref=e140]: "2024"
+          - heading "FinConnect" [level=3] [ref=e141]
+          - paragraph [ref=e142]: Portal de banca digital para 120.000 clientes activos.
+          - generic [ref=e143]:
+            - text: Ver caso completo
+            - img [ref=e144]
+      - link "02 RPA Retail Python 78% Reducción en trabajo manual 4 meses ROI alcanzado en Automatización de Procesos 2024 AutoOps Eliminamos 78% del trabajo manual en operaciones de inventario. Ver caso completo" [ref=e146] [cursor=pointer]:
+        - /url: /proyectos/autoops
+        - generic [ref=e147]:
+          - generic [ref=e148]: "02"
+          - generic [ref=e149]:
+            - generic [ref=e150]: RPA
+            - generic [ref=e151]: Retail
+            - generic [ref=e152]: Python
+          - generic [ref=e154]:
+            - generic [ref=e155]:
+              - strong [ref=e156]: 78%
+              - generic [ref=e157]: Reducción en trabajo manual
+            - generic [ref=e158]:
+              - strong [ref=e159]: 4 meses
+              - generic [ref=e160]: ROI alcanzado en
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - generic [ref=e163]: Automatización de Procesos
+            - generic [ref=e164]: "2024"
+          - heading "AutoOps" [level=3] [ref=e165]
+          - paragraph [ref=e166]: Eliminamos 78% del trabajo manual en operaciones de inventario.
+          - generic [ref=e167]:
+            - text: Ver caso completo
+            - img [ref=e168]
+      - link "03 Salud IA CRM 3x más rápido Velocidad de atención 91% Satisfacción de pacientes IA y Automatización 2025 NeuraCRM CRM con IA predictiva para gestión de 120.000 pacientes. Ver caso completo" [ref=e170] [cursor=pointer]:
+        - /url: /proyectos/neuracrm
+        - generic [ref=e171]:
+          - generic [ref=e172]: "03"
+          - generic [ref=e173]:
+            - generic [ref=e174]: Salud
+            - generic [ref=e175]: IA
+            - generic [ref=e176]: CRM
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - strong [ref=e180]: 3x más rápido
+              - generic [ref=e181]: Velocidad de atención
+            - generic [ref=e182]:
+              - strong [ref=e183]: 91%
+              - generic [ref=e184]: Satisfacción de pacientes
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - generic [ref=e187]: IA y Automatización
+            - generic [ref=e188]: "2025"
+          - heading "NeuraCRM" [level=3] [ref=e189]
+          - paragraph [ref=e190]: CRM con IA predictiva para gestión de 120.000 pacientes.
+          - generic [ref=e191]:
+            - text: Ver caso completo
+            - img [ref=e192]
+      - link "04 Analytics BigQuery Python 72 hs → 15 min Tiempo para decisiones 180.000 Pólizas monitoreadas Consultoría TI 2025 PulsoData Visibilidad en tiempo real de 180.000 pólizas activas. Ver caso completo" [ref=e194] [cursor=pointer]:
+        - /url: /proyectos/pulsodata
+        - generic [ref=e195]:
+          - generic [ref=e196]: "04"
+          - generic [ref=e197]:
+            - generic [ref=e198]: Analytics
+            - generic [ref=e199]: BigQuery
+            - generic [ref=e200]: Python
+          - generic [ref=e202]:
+            - generic [ref=e203]:
+              - strong [ref=e204]: 72 hs → 15 min
+              - generic [ref=e205]: Tiempo para decisiones
+            - generic [ref=e206]:
+              - strong [ref=e207]: "180.000"
+              - generic [ref=e208]: Pólizas monitoreadas
+        - generic [ref=e209]:
+          - generic [ref=e210]:
+            - generic [ref=e211]: Consultoría TI
+            - generic [ref=e212]: "2025"
+          - heading "PulsoData" [level=3] [ref=e213]
+          - paragraph [ref=e214]: Visibilidad en tiempo real de 180.000 pólizas activas.
+          - generic [ref=e215]:
+            - text: Ver caso completo
+            - img [ref=e216]
+  - generic [ref=e220]:
+    - generic [ref=e221]:
+      - generic [ref=e222]: Por qué Ignia
+      - heading "Tecnología seria, resultados medibles." [level=2] [ref=e223]:
+        - text: Tecnología seria,
+        - text: resultados medibles.
+      - paragraph [ref=e224]: "No vendemos proyectos: construimos alianzas a largo plazo. Tu éxito es nuestro caso de estudio."
+      - link "Agendar llamada gratuita →" [ref=e225] [cursor=pointer]:
+        - /url: mailto:hola@ignia.dev
+      - img "Equipo Ignia colaborando" [ref=e227]
+    - generic [ref=e228]:
+      - generic [ref=e229]:
+        - generic [ref=e230]: "01"
+        - generic [ref=e231]:
+          - heading "Tecnologías modernas" [level=4] [ref=e232]
+          - paragraph [ref=e233]: Angular, React, Python, IA. Usamos el stack correcto para cada problema, no el de moda.
+      - generic [ref=e234]:
+        - generic [ref=e235]: "02"
+        - generic [ref=e236]:
+          - heading "Proceso claro y transparente" [level=4] [ref=e237]
+          - paragraph [ref=e238]: Sprints de 2 semanas con demos reales. Ves avances concretos, no solo reportes de estado.
+      - generic [ref=e239]:
+        - generic [ref=e240]: "03"
+        - generic [ref=e241]:
+          - heading "Deploy en producción incluido" [level=4] [ref=e242]
+          - paragraph [ref=e243]: AWS, GCP, Vercel. CI/CD, SSL, monitoreo y soporte desde el primer día en producción.
+      - generic [ref=e244]:
+        - generic [ref=e245]: "04"
+        - generic [ref=e246]:
+          - heading "Mejora continua" [level=4] [ref=e247]
+          - paragraph [ref=e248]: Post-entrega no es el final. Analytics, iteraciones y soporte cuando los necesitas.
+  - generic [ref=e251]:
+    - heading "¿Listo para construir algo extraordinario?" [level=2] [ref=e252]
+    - paragraph [ref=e253]: Agenda una llamada gratuita de 30 minutos. Sin compromiso. Sin presión.
+    - generic [ref=e254]:
+      - link "Escribirnos ahora" [ref=e255] [cursor=pointer]:
+        - /url: mailto:hola@ignia.dev
+        - text: Escribirnos ahora
+        - img [ref=e256]
+      - link "Ver taller gratuito de IA →" [ref=e258] [cursor=pointer]:
+        - /url: /taller
+  - contentinfo [ref=e260]:
+    - generic [ref=e261]:
+      - generic [ref=e262]:
+        - link "Ignia Ignia" [ref=e263] [cursor=pointer]:
+          - /url: /
+          - img "Ignia" [ref=e264]
+          - generic [ref=e265]: Ignia
+        - paragraph [ref=e266]: Transformamos empresas con tecnología que funciona.
+        - link "hola@ignia.dev" [ref=e267] [cursor=pointer]:
+          - /url: mailto:hola@ignia.dev
+      - generic [ref=e268]:
+        - generic [ref=e269]: Servicios
+        - link "Plataformas Web" [ref=e270] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+        - link "Consultoría & IA" [ref=e271] [cursor=pointer]:
+          - /url: /servicios/consultoria-ti
+        - link "Automatización" [ref=e272] [cursor=pointer]:
+          - /url: /servicios/automatizacion
+      - generic [ref=e273]:
+        - generic [ref=e274]: Empresa
+        - link "Proyectos" [ref=e275] [cursor=pointer]:
+          - /url: /proyectos
+        - link "Taller Gratuito" [ref=e276] [cursor=pointer]:
+          - /url: /taller
+        - link "Contacto" [ref=e277] [cursor=pointer]:
+          - /url: mailto:hola@ignia.dev
+      - generic [ref=e278]:
+        - generic [ref=e279]: Contacto
+        - link "hola@ignia.dev" [ref=e280] [cursor=pointer]:
+          - /url: mailto:hola@ignia.dev
+        - link "WhatsApp" [ref=e281] [cursor=pointer]:
+          - /url: https://wa.me/5491100000000
+        - link "LinkedIn" [ref=e282] [cursor=pointer]:
+          - /url: https://linkedin.com/company/ignia
+    - generic [ref=e283]:
+      - generic [ref=e284]: © 2026 Ignia. Todos los derechos reservados.
+      - generic [ref=e285]: Desarrollo web, IA y automatización.

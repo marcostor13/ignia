@@ -61,11 +61,13 @@ class LeadStore:
         if self._col is None:
             mongo_uri = os.getenv("MONGOURI", "")
             if not mongo_uri:
+                print("[mongodb] ERROR: MONGOURI env var not set")
                 raise RuntimeError("MONGOURI env var is not set")
+            print("[mongodb] connecting to Atlas...")
             client = AsyncIOMotorClient(mongo_uri, serverSelectionTimeoutMS=5000)
             self._col = client["ignia"]["leads"]
             await self._col.create_index("email", unique=True)
-            logger.info("LeadStore connected to MongoDB Atlas")
+            print("[mongodb] connected OK — collection: ignia.leads")
         return self._col
 
     async def upsert(
@@ -80,6 +82,7 @@ class LeadStore:
 
         existing = await col.find_one({"email": email})
         if existing:
+            print(f"[mongodb] lead ya existe: {email}")
             return _doc_to_lead(existing), False
 
         doc = {
@@ -93,6 +96,7 @@ class LeadStore:
         }
         result = await col.insert_one(doc)
         doc["_id"] = result.inserted_id
+        print(f"[mongodb] lead guardado: {email} id={result.inserted_id}")
         return _doc_to_lead(doc), True
 
     async def mark_notified(self, email: str) -> None:

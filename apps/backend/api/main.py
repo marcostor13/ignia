@@ -11,13 +11,36 @@ Routes:
 """
 
 import os
+import time
+from collections import defaultdict
 from contextlib import asynccontextmanager
 from typing import Any, Optional
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+
+# ---------------------------------------------------------------------------
+# IP rate limiter — 20 requests per IP per hour
+# ---------------------------------------------------------------------------
+
+_CHAT_LIMIT = int(os.environ.get("CHAT_RATE_LIMIT", "20"))
+_CHAT_WINDOW = 3600  # seconds
+
+_ip_log: dict[str, list[float]] = defaultdict(list)
+
+
+def _allow_request(ip: str) -> bool:
+    now = time.time()
+    cutoff = now - _CHAT_WINDOW
+    hits = _ip_log[ip]
+    # drop timestamps outside the window
+    _ip_log[ip] = [t for t in hits if t > cutoff]
+    if len(_ip_log[ip]) >= _CHAT_LIMIT:
+        return False
+    _ip_log[ip].append(now)
+    return True
 
 load_dotenv()
 
@@ -95,6 +118,7 @@ class ChatResponse(BaseModel):
     tokens_used: dict[str, int]
     tokens_saved: int
     cost_usd: float
+    action: Optional[str] = None  # "open_calendar" → frontend opens booking modal
 
 
 class AgentRunRequest(BaseModel):
@@ -120,8 +144,15 @@ class CompressResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 @app.post("/api/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest) -> ChatResponse:
+async def chat(http_request: Request, request: ChatRequest) -> ChatResponse:
     """Chat with an agent. Supports multi-turn conversation history."""
+    ip = http_request.client.host if http_request.client else "unknown"
+    if not _allow_request(ip):
+        raise HTTPException(
+            status_code=429,
+            detail="Demasiadas solicitudes. Por favor espera unos minutos antes de continuar.",
+        )
+
     agent = _agent_registry.get(request.agent_id)
     if agent is None:
         available = [a["id"] for a in _agent_registry.list_all()]
@@ -141,6 +172,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
         tokens_used=result.get("tokens_used", {}),
         tokens_saved=result.get("tokens_saved", 0),
         cost_usd=result.get("cost_usd", 0.0),
+        action=result.get("action"),
     )
 
 
@@ -178,6 +210,7 @@ async def run_agent(agent_id: str, request: AgentRunRequest) -> ChatResponse:
         tokens_used=result.get("tokens_used", {}),
         tokens_saved=result.get("tokens_saved", 0),
         cost_usd=result.get("cost_usd", 0.0),
+        action=result.get("action"),
     )
 
 

@@ -1,0 +1,564 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - img "Lesse Studio Logo" [ref=e5]
+    - generic [ref=e6]: 99%
+  - generic:
+    - generic:
+      - button "Start a project":
+        - text: Start a project
+        - img
+  - navigation "Main navigation":
+    - link "Lesse Logo" [ref=e9] [cursor=pointer]:
+      - /url: /
+      - generic "Lesse Logo" [ref=e10]:
+        - img [ref=e11]
+    - menu "Site navigation" [ref=e13]:
+      - generic [ref=e14]:
+        - link "Services" [ref=e15] [cursor=pointer]:
+          - /url: /services
+        - link "Portfolio" [ref=e16] [cursor=pointer]:
+          - /url: /portfolio
+        - link "About" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Insights" [ref=e18] [cursor=pointer]:
+          - /url: /insights
+        - link "Contact" [ref=e19] [cursor=pointer]:
+          - /url: /contact
+      - menu "Site navigation menu" [ref=e20]
+    - link [ref=e21] [cursor=pointer]:
+      - /url: /login
+      - img [ref=e22]
+  - generic [ref=e64]:
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - heading "Full-Service Agency" [level=2] [ref=e68]:
+          - generic [ref=e71]: Full-Service Agency
+        - heading "Lesse is a design and technology studio based in Italy. We deliver hollistic brand idendity & digital experiences." [level=2] [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e75]: Lesse is a design and technology
+            - generic [ref=e77]: studio based in Italy. We deliver
+            - generic [ref=e79]: hollistic brand idendity & digital
+            - generic [ref=e81]: experiences.
+      - link "Start a Project" [ref=e83] [cursor=pointer]:
+        - /url: /
+        - text: Start a Project
+        - img [ref=e84]
+    - generic [ref=e91]:
+      - text: Scroll
+      - img [ref=e92]
+  - generic [ref=e99]:
+    - heading "Our services" [level=2] [ref=e102]:
+      - generic [ref=e105]: Our services
+    - generic [ref=e106]:
+      - generic [ref=e108]:
+        - link "Brand Strategy Brand Positioning Competitor & Market Research Brand Architecture Brand Audit Brand Naming & Tagline Brand Messaging & Tone of Voice See More Brand Strategy /6 services" [ref=e110] [cursor=pointer]:
+          - /url: brand-strategy
+          - img "Brand Strategy" [ref=e113]
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - generic [ref=e116]: Brand Positioning
+              - generic [ref=e117]: Competitor & Market Research
+              - generic [ref=e118]: Brand Architecture
+              - generic [ref=e119]: Brand Audit
+              - generic [ref=e120]: Brand Naming & Tagline
+              - generic [ref=e121]: Brand Messaging & Tone of Voice
+            - generic [ref=e122]: See More
+          - generic [ref=e123]:
+            - heading "Brand Strategy" [level=3] [ref=e124]
+            - generic [ref=e125]: /6 services
+          - img [ref=e127]
+        - link "Brand Identity Brand Identity Design Logo Design Visual Language & Design System Rebranding Packaging Design See More Brand Identity /5 services" [ref=e154] [cursor=pointer]:
+          - /url: brand-identity
+          - img "Brand Identity" [ref=e157]
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - generic [ref=e160]: Brand Identity Design
+              - generic [ref=e161]: Logo Design
+              - generic [ref=e162]: Visual Language & Design System
+              - generic [ref=e163]: Rebranding
+              - generic [ref=e164]: Packaging Design
+            - generic [ref=e165]: See More
+          - generic [ref=e166]:
+            - heading "Brand Identity" [level=3] [ref=e167]
+            - generic [ref=e168]: /5 services
+          - img [ref=e170]
+        - link "User Experience Design UX / UI Design Web Design Mobile App Design UX Research Wireframing & Prototyping Design System & UI Kit See More User Experience Design /6 services" [ref=e201] [cursor=pointer]:
+          - /url: user-experience-design
+          - img "User Experience Design" [ref=e204]
+          - generic [ref=e205]:
+            - generic [ref=e206]:
+              - generic [ref=e207]: UX / UI Design
+              - generic [ref=e208]: Web Design
+              - generic [ref=e209]: Mobile App Design
+              - generic [ref=e210]: UX Research
+              - generic [ref=e211]: Wireframing & Prototyping
+              - generic [ref=e212]: Design System & UI Kit
+            - generic [ref=e213]: See More
+          - generic [ref=e214]:
+            - heading "User Experience Design" [level=3] [ref=e215]
+            - generic [ref=e216]: /6 services
+          - img [ref=e218]
+        - link "Visual Content Product Photography Lifestyle & Campaign Shoot E-commerce Shoot See More Visual Content /3 services" [ref=e249] [cursor=pointer]:
+          - /url: visual-content
+          - img "Visual Content" [ref=e252]
+          - generic [ref=e253]:
+            - generic [ref=e254]:
+              - generic [ref=e255]: Product Photography
+              - generic [ref=e256]: Lifestyle & Campaign Shoot
+              - generic [ref=e257]: E-commerce Shoot
+            - generic [ref=e258]: See More
+          - generic [ref=e259]:
+            - heading "Visual Content" [level=3] [ref=e260]
+            - generic [ref=e261]: /3 services
+          - img [ref=e263]
+      - generic [ref=e310]:
+        - link "Web Development Website Development Web Applications SaaS Platforms Content Platforms API Integrations Maintenance & Support Scaling & Performance See More Web Development /7 services" [ref=e312] [cursor=pointer]:
+          - /url: web-development
+          - img "Web Development" [ref=e315]
+          - generic [ref=e316]:
+            - generic [ref=e317]:
+              - generic [ref=e318]: Website Development
+              - generic [ref=e319]: Web Applications
+              - generic [ref=e320]: SaaS Platforms
+              - generic [ref=e321]: Content Platforms
+              - generic [ref=e322]: API Integrations
+              - generic [ref=e323]: Maintenance & Support
+              - generic [ref=e324]: Scaling & Performance
+            - generic [ref=e325]: See More
+          - generic [ref=e326]:
+            - heading "Web Development" [level=3] [ref=e327]
+            - generic [ref=e328]: /7 services
+          - img [ref=e330]
+        - link "eCommerce Shopify Stores Custom eCommerce Platform Migration & Scaling Conversion Rate Optimization B2B & Enterprise Portals Multi-Vendor Marketplaces Membership Platforms See More eCommerce /7 services" [ref=e361] [cursor=pointer]:
+          - /url: ecommerce
+          - img "eCommerce" [ref=e364]
+          - generic [ref=e365]:
+            - generic [ref=e366]:
+              - generic [ref=e367]: Shopify Stores
+              - generic [ref=e368]: Custom eCommerce
+              - generic [ref=e369]: Platform Migration & Scaling
+              - generic [ref=e370]: Conversion Rate Optimization
+              - generic [ref=e371]: B2B & Enterprise Portals
+              - generic [ref=e372]: Multi-Vendor Marketplaces
+              - generic [ref=e373]: Membership Platforms
+            - generic [ref=e374]: See More
+          - generic [ref=e375]:
+            - heading "eCommerce" [level=3] [ref=e376]
+            - generic [ref=e377]: /7 services
+          - img [ref=e379]
+        - link "Web & Mobile Applications iOS & Android Apps Internal Business Tools API Development Booking & Scheduling LMS & Education Platforms Payments Systems See More Web & Mobile Applications /6 services" [ref=e411] [cursor=pointer]:
+          - /url: web-mobile-applications
+          - img "Web & Mobile Applications" [ref=e414]
+          - generic [ref=e415]:
+            - generic [ref=e416]:
+              - generic [ref=e417]: iOS & Android Apps
+              - generic [ref=e418]: Internal Business Tools
+              - generic [ref=e419]: API Development
+              - generic [ref=e420]: Booking & Scheduling
+              - generic [ref=e421]: LMS & Education Platforms
+              - generic [ref=e422]: Payments Systems
+            - generic [ref=e423]: See More
+          - generic [ref=e424]:
+            - heading "Web & Mobile Applications" [level=3] [ref=e425]
+            - generic [ref=e426]: /6 services
+          - img [ref=e428]
+        - link "Embedded & Hardware Consumer Electronics UI Touch & Display Systems Custom Interaction Layers Smart Firmware & Sensors Industrial HMI & Control See More Embedded & Hardware /5 services" [ref=e453] [cursor=pointer]:
+          - /url: embedded-hardware
+          - img "Embedded & Hardware" [ref=e456]
+          - generic [ref=e457]:
+            - generic [ref=e458]:
+              - generic [ref=e459]: Consumer Electronics UI
+              - generic [ref=e460]: Touch & Display Systems
+              - generic [ref=e461]: Custom Interaction Layers
+              - generic [ref=e462]: Smart Firmware & Sensors
+              - generic [ref=e463]: Industrial HMI & Control
+            - generic [ref=e464]: See More
+          - generic [ref=e465]:
+            - heading "Embedded & Hardware" [level=3] [ref=e466]
+            - generic [ref=e467]: /5 services
+          - img [ref=e469]
+    - link "Explore All Services" [ref=e499] [cursor=pointer]:
+      - /url: /services
+  - region "Services overview" [ref=e500]:
+    - generic [ref=e502]:
+      - heading "Our approach and values" [level=2] [ref=e504]:
+        - generic [ref=e507]: Our approach and values
+      - paragraph [ref=e509]:
+        - generic [ref=e510]:
+          - generic [ref=e512]: We combine creativity, strategic ideas
+          - generic [ref=e514]: and technology to create bespoke
+          - generic [ref=e516]: solutions that drive your success.
+    - generic [ref=e518]:
+      - button [ref=e519] [cursor=pointer]:
+        - img [ref=e520]
+      - button [ref=e562] [cursor=pointer]:
+        - img [ref=e563]
+      - button [ref=e589] [cursor=pointer]:
+        - img [ref=e590]
+      - button [ref=e629] [cursor=pointer]:
+        - img [ref=e630]
+      - button [ref=e660] [cursor=pointer]:
+        - img [ref=e661]
+      - button [ref=e709] [cursor=pointer]:
+        - img [ref=e710]
+  - img "Placeholder" [ref=e761]
+  - generic [ref=e762]:
+    - heading "Latest Work" [level=2] [ref=e764]:
+      - generic [ref=e767]: Latest Work
+    - generic [ref=e768]:
+      - 'link "Project thumbnail for Duo Nutrition Duo Nutrition DUO NUTRITION is a brand that redefines pet food as a celebration of the equal, unspoken partnership between humans and their dogs. Our challenge was to translate philosophy into a logo that captures the essence of togetherness. The solution lies in the submark: a simple yet powerful oval, split evenly down the middle. This design embodies the concept of a duet: two distinct halves, balanced and complementary, coming together to form a unified whole. Location Russia Industry Pets" [ref=e770] [cursor=pointer]':
+        - /url: /portfolio/duo-nutrition
+        - img "Project thumbnail for Duo Nutrition" [ref=e773]
+        - generic [ref=e774]:
+          - heading "Duo Nutrition" [level=3] [ref=e776]:
+            - generic [ref=e779]: Duo Nutrition
+          - paragraph [ref=e781]:
+            - generic [ref=e782]:
+              - generic [ref=e784]: DUO NUTRITION is a brand that redefines pet food as a celebration of the equal, unspoken
+              - generic [ref=e786]: partnership between humans and their dogs. Our challenge was to translate philosophy into a
+              - generic [ref=e788]: "logo that captures the essence of togetherness. The solution lies in the submark: a simple yet"
+              - generic [ref=e790]: "powerful oval, split evenly down the middle. This design embodies the concept of a duet: two"
+              - generic [ref=e792]: distinct halves, balanced and complementary, coming together to form a unified whole.
+          - generic [ref=e794]:
+            - generic [ref=e795]:
+              - heading "Location" [level=4] [ref=e796]
+              - generic [ref=e797]: Russia
+            - generic [ref=e798]:
+              - heading "Industry" [level=4] [ref=e799]
+              - generic [ref=e800]: Pets
+      - link "Project thumbnail for Everyday Everyday Everyday Sea Moss is a premium wellness brand offering natural sea moss, rich in over 92 minerals and vitamins. The product is designed to effortlessly support energy, immunity, and glowing skin every day. Our task was to create a brand identity, packaging design, web design, and photoshoot that bring a fresh perspective to sea moss, a bright yet minimalist visual language that repositions the product as modern, appealing, and seamlessly fitting into everyday life. Location Australia Industry Supplements" [ref=e802] [cursor=pointer]:
+        - /url: /portfolio/everyday
+        - img "Project thumbnail for Everyday" [ref=e805]
+        - generic [ref=e806]:
+          - heading "Everyday" [level=3] [ref=e808]:
+            - generic [ref=e811]: Everyday
+          - paragraph [ref=e813]:
+            - generic [ref=e814]:
+              - generic [ref=e816]: Everyday Sea Moss is a premium wellness brand offering natural sea moss, rich in over 92
+              - generic [ref=e818]: minerals and vitamins. The product is designed to effortlessly support energy, immunity, and
+              - generic [ref=e820]: glowing skin every day. Our task was to create a brand identity, packaging design, web design,
+              - generic [ref=e822]: and photoshoot that bring a fresh perspective to sea moss, a bright yet minimalist visual
+              - generic [ref=e824]: language that repositions the product as modern, appealing, and seamlessly fitting into
+              - generic [ref=e826]: everyday life.
+          - generic [ref=e828]:
+            - generic [ref=e829]:
+              - heading "Location" [level=4] [ref=e830]
+              - generic [ref=e831]: Australia
+            - generic [ref=e832]:
+              - heading "Industry" [level=4] [ref=e833]
+              - generic [ref=e834]: Supplements
+      - 'link "Project thumbnail for Nymph Nymph Nymph Haircare is a haircare brand that celebrates femininity, free spirit, and our deep connection with nature. Its philosophy is inspired by ancient Greek mythology: nymphs, divine spirits of nature, symbolize grace, beauty, and strength. We created the brand identity and packaging design, capturing its mythological inspiration and the harmony between natural beauty and modern aesthetics. Location Thailand Industry Cosmetics" [ref=e836] [cursor=pointer]':
+        - /url: /portfolio/nymph
+        - img "Project thumbnail for Nymph" [ref=e839]
+        - generic [ref=e840]:
+          - heading "Nymph" [level=3] [ref=e842]:
+            - generic [ref=e845]: Nymph
+          - paragraph [ref=e847]:
+            - generic [ref=e848]:
+              - generic [ref=e850]: Nymph Haircare is a haircare brand that celebrates femininity, free spirit, and our deep
+              - generic [ref=e852]: "connection with nature. Its philosophy is inspired by ancient Greek mythology: nymphs, divine"
+              - generic [ref=e854]: spirits of nature, symbolize grace, beauty, and strength. We created the brand identity and
+              - generic [ref=e856]: packaging design, capturing its mythological inspiration and the harmony between natural
+              - generic [ref=e858]: beauty and modern aesthetics.
+          - generic [ref=e860]:
+            - generic [ref=e861]:
+              - heading "Location" [level=4] [ref=e862]
+              - generic [ref=e863]: Thailand
+            - generic [ref=e864]:
+              - heading "Industry" [level=4] [ref=e865]
+              - generic [ref=e866]: Cosmetics
+    - link "View full portfolio" [ref=e869] [cursor=pointer]:
+      - /url: /portfolio
+  - generic [ref=e872]:
+    - generic [ref=e873]:
+      - generic [ref=e874]:
+        - heading "Testimonials" [level=2] [ref=e875]
+        - heading "What our clients say about working with us." [level=3] [ref=e876]:
+          - generic [ref=e877]:
+            - generic [ref=e879]: What our clients say
+            - generic [ref=e881]: about working with
+            - generic [ref=e883]: us.
+      - link "Let's work together" [ref=e885] [cursor=pointer]:
+        - /url: /
+        - text: Let's work together
+        - img [ref=e886]
+    - generic [ref=e895]:
+      - generic [ref=e896]:
+        - paragraph [ref=e897]: "\"You’ve created a true work of art that perfectly captures the idea of an emotional connection with the customer. Your work exceeded our expectations, and this was echoed by everyone on the team. Every element of the design reflects a genuine love for animals and a high level of professionalism. Everything has been thought through down to the smallest detail and contributes to creating a strong emotional response from the consumer. We’re truly happy we had the opportunity to work with you on this project and hope to collaborate again in the future on new projects.\""
+        - generic [ref=e898]:
+          - img "Photo of Duo Nutrition" [ref=e901]
+          - generic [ref=e902]:
+            - paragraph [ref=e903]: Duo Nutrition
+            - generic [ref=e904]: Team, DUO Nutrition
+      - generic [ref=e905]:
+        - paragraph [ref=e906]: "\"We're glad we found you and waited for your availability, i'm sure we'll work together again soon. The process was smooth and you understood what we wanted to achieve, so we're really happy. \""
+        - generic [ref=e907]:
+          - img "Photo of Miguel" [ref=e910]
+          - generic [ref=e911]:
+            - paragraph [ref=e912]: Miguel
+            - generic [ref=e913]: Founder, Lunna
+      - generic [ref=e914]:
+        - paragraph [ref=e915]: "\"We wanted to sincerely thank you for being part of the birth and realization of our private spa project in Brussels. Your attention to detail was remarkable and, at times, felt like a real achievement! From our logo to our website and the entire branding experience, every element was thoughtfully crafted and aligned with what we had envisioned & sometimes even better than we could have imagined ourselves.\""
+        - generic [ref=e916]:
+          - img "Photo of Esra & Olivier" [ref=e919]
+          - generic [ref=e920]:
+            - paragraph [ref=e921]: Esra & Olivier
+            - generic [ref=e922]: Founders, Neva Spa
+      - generic [ref=e923]:
+        - paragraph [ref=e924]: "\"LESSE Studio brings a rare mix of exceptional talent and true collaboration. Their design work is best-in-class, defined by sharp taste and a distinct point of view. Anastasiia has been pleasure to work with and is a partner we’re excited to keep building with.\""
+        - generic [ref=e925]:
+          - img "Photo of Johnny Tran" [ref=e928]
+          - generic [ref=e929]:
+            - paragraph [ref=e930]: Johnny Tran
+            - generic [ref=e931]: Founder, Vora
+      - generic [ref=e932]:
+        - paragraph [ref=e933]: "\"You’ve created a true work of art that perfectly captures the idea of an emotional connection with the customer. Your work exceeded our expectations, and this was echoed by everyone on the team. Every element of the design reflects a genuine love for animals and a high level of professionalism. Everything has been thought through down to the smallest detail and contributes to creating a strong emotional response from the consumer. We’re truly happy we had the opportunity to work with you on this project and hope to collaborate again in the future on new projects.\""
+        - generic [ref=e934]:
+          - img "Photo of Duo Nutrition" [ref=e937]
+          - generic [ref=e938]:
+            - paragraph [ref=e939]: Duo Nutrition
+            - generic [ref=e940]: Team, DUO Nutrition
+      - generic [ref=e941]:
+        - paragraph [ref=e942]: "\"We're glad we found you and waited for your availability, i'm sure we'll work together again soon. The process was smooth and you understood what we wanted to achieve, so we're really happy. \""
+        - generic [ref=e943]:
+          - img "Photo of Miguel" [ref=e946]
+          - generic [ref=e947]:
+            - paragraph [ref=e948]: Miguel
+            - generic [ref=e949]: Founder, Lunna
+      - generic [ref=e950]:
+        - paragraph [ref=e951]: "\"We wanted to sincerely thank you for being part of the birth and realization of our private spa project in Brussels. Your attention to detail was remarkable and, at times, felt like a real achievement! From our logo to our website and the entire branding experience, every element was thoughtfully crafted and aligned with what we had envisioned & sometimes even better than we could have imagined ourselves.\""
+        - generic [ref=e952]:
+          - img "Photo of Esra & Olivier" [ref=e955]
+          - generic [ref=e956]:
+            - paragraph [ref=e957]: Esra & Olivier
+            - generic [ref=e958]: Founders, Neva Spa
+      - generic [ref=e959]:
+        - paragraph [ref=e960]: "\"LESSE Studio brings a rare mix of exceptional talent and true collaboration. Their design work is best-in-class, defined by sharp taste and a distinct point of view. Anastasiia has been pleasure to work with and is a partner we’re excited to keep building with.\""
+        - generic [ref=e961]:
+          - img "Photo of Johnny Tran" [ref=e964]
+          - generic [ref=e965]:
+            - paragraph [ref=e966]: Johnny Tran
+            - generic [ref=e967]: Founder, Vora
+  - generic [ref=e968]:
+    - heading "Latest news" [level=2] [ref=e970]:
+      - generic [ref=e973]: Latest news
+    - generic [ref=e974]:
+      - generic [ref=e975]:
+        - link "Building Brands from Within April 5 branded bottles" [ref=e976] [cursor=pointer]:
+          - /url: /insights/building-brands-from-within
+          - generic [ref=e977]:
+            - heading "Building Brands from Within" [level=3] [ref=e978]
+            - generic [ref=e979]: April 5
+          - img "branded bottles" [ref=e982]
+          - img [ref=e984]
+        - link "How to Choose a Brand Name That Lasts April 5 paper tags" [ref=e986] [cursor=pointer]:
+          - /url: /insights/how-to-choose-a-brand-name-that-lasts
+          - generic [ref=e987]:
+            - heading "How to Choose a Brand Name That Lasts" [level=3] [ref=e988]
+            - generic [ref=e989]: April 5
+          - img "paper tags" [ref=e992]
+          - img [ref=e994]
+      - link "View all news" [ref=e997] [cursor=pointer]:
+        - /url: /insights
+  - generic [ref=e1000]:
+    - heading "Ready to get started?" [level=2] [ref=e1002]:
+      - generic [ref=e1003]:
+        - generic [ref=e1005]: Ready to get
+        - generic [ref=e1007]: started?
+    - generic [ref=e1009]:
+      - generic [ref=e1010]:
+        - paragraph [ref=e1011]: "Fill the form to request a quote:"
+        - generic [ref=e1012]:
+          - button "Your Name *" [ref=e1013]:
+            - generic: Your Name *
+            - textbox [ref=e1014]
+          - button "Email *" [ref=e1015]:
+            - generic: Email *
+            - textbox [ref=e1016]
+        - button "Phone (Optional)" [ref=e1018]:
+          - generic: Phone (Optional)
+          - textbox [ref=e1019]
+        - button "Tell us about your project *" [ref=e1020]:
+          - generic: Tell us about your project *
+          - textbox [ref=e1021]
+        - generic [ref=e1022]:
+          - heading "Services are interested in" [level=3] [ref=e1024]
+          - generic [ref=e1025]:
+            - button "Brand Strategy" [ref=e1026] [cursor=pointer]:
+              - generic [ref=e1028]: Brand Strategy
+            - button "Brand Identity" [ref=e1029] [cursor=pointer]:
+              - generic [ref=e1031]: Brand Identity
+            - button "User Experience Design" [ref=e1032] [cursor=pointer]:
+              - generic [ref=e1034]: User Experience Design
+            - button "Visual Content" [ref=e1035] [cursor=pointer]:
+              - generic [ref=e1037]: Visual Content
+          - generic [ref=e1038]:
+            - button "Web Development" [ref=e1039] [cursor=pointer]:
+              - generic [ref=e1041]: Web Development
+            - button "eCommerce" [ref=e1042] [cursor=pointer]:
+              - generic [ref=e1044]: eCommerce
+            - button "Web & Mobile Applications" [ref=e1045] [cursor=pointer]:
+              - generic [ref=e1047]: Web & Mobile Applications
+            - button "Embedded & Hardware" [ref=e1048] [cursor=pointer]:
+              - generic [ref=e1050]: Embedded & Hardware
+      - generic [ref=e1051]:
+        - text: Website
+        - textbox [ref=e1052]
+      - button "Send Message" [ref=e1055] [cursor=pointer]:
+        - text: Send Message
+        - img [ref=e1056]
+  - contentinfo [ref=e1063]:
+    - generic [ref=e1064]:
+      - heading "Visual and Marketing" [level=3] [ref=e1066]
+      - generic [ref=e1067]:
+        - link "Brand Strategy" [ref=e1068] [cursor=pointer]:
+          - /url: /services/brand-strategy
+          - text: Brand Strategy
+          - img [ref=e1069]
+        - generic [ref=e1072]:
+          - link "Brand Positioning" [ref=e1073] [cursor=pointer]:
+            - /url: /services/brand-strategy/brand-positioning
+          - link "Competitor & Market Research" [ref=e1074] [cursor=pointer]:
+            - /url: /services/brand-strategy/competitor-market-research
+          - link "Brand Architecture" [ref=e1075] [cursor=pointer]:
+            - /url: /services/brand-strategy/brand-architecture
+          - link "Brand Audit" [ref=e1076] [cursor=pointer]:
+            - /url: /services/brand-strategy/brand-audit
+          - link "Brand Naming & Tagline" [ref=e1077] [cursor=pointer]:
+            - /url: /services/brand-strategy/brand-naming-tagline
+          - link "Brand Messaging & Tone of Voice" [ref=e1078] [cursor=pointer]:
+            - /url: /services/brand-strategy/brand-messaging-tone-of-voice
+      - generic [ref=e1079]:
+        - link "Brand Identity" [ref=e1080] [cursor=pointer]:
+          - /url: /services/brand-identity
+          - text: Brand Identity
+          - img [ref=e1081]
+        - generic [ref=e1084]:
+          - link "Brand Identity Design" [ref=e1085] [cursor=pointer]:
+            - /url: /services/brand-identity/brand-identity-design
+          - link "Logo Design" [ref=e1086] [cursor=pointer]:
+            - /url: /services/brand-identity/logo-design
+          - link "Visual Language & Design System" [ref=e1087] [cursor=pointer]:
+            - /url: /services/brand-identity/visual-language-design-system
+          - link "Rebranding" [ref=e1088] [cursor=pointer]:
+            - /url: /services/brand-identity/rebranding
+          - link "Packaging Design" [ref=e1089] [cursor=pointer]:
+            - /url: /services/brand-identity/packaging-design
+      - generic [ref=e1090]:
+        - link "User Experience Design" [ref=e1091] [cursor=pointer]:
+          - /url: /services/user-experience-design
+          - text: User Experience Design
+          - img [ref=e1092]
+        - generic [ref=e1095]:
+          - link "UX / UI Design" [ref=e1096] [cursor=pointer]:
+            - /url: /services/user-experience-design/ux-ui-design
+          - link "Web Design" [ref=e1097] [cursor=pointer]:
+            - /url: /services/user-experience-design/web-design
+          - link "Mobile App Design" [ref=e1098] [cursor=pointer]:
+            - /url: /services/user-experience-design/mobile-app-design
+          - link "UX Research" [ref=e1099] [cursor=pointer]:
+            - /url: /services/user-experience-design/ux-research
+          - link "Wireframing & Prototyping" [ref=e1100] [cursor=pointer]:
+            - /url: /services/user-experience-design/wireframing-prototyping
+          - link "Design System & UI Kit" [ref=e1101] [cursor=pointer]:
+            - /url: /services/user-experience-design/design-system-ui-kit
+      - generic [ref=e1102]:
+        - link "Visual Content" [ref=e1103] [cursor=pointer]:
+          - /url: /services/visual-content
+          - text: Visual Content
+          - img [ref=e1104]
+        - generic [ref=e1107]:
+          - link "Product Photography" [ref=e1108] [cursor=pointer]:
+            - /url: /services/visual-content/product-photography
+          - link "Lifestyle & Campaign Shoot" [ref=e1109] [cursor=pointer]:
+            - /url: /services/visual-content/lifestyle-campaign-shoot
+          - link "E-commerce Shoot" [ref=e1110] [cursor=pointer]:
+            - /url: /services/visual-content/e-commerce-shoot
+    - generic [ref=e1111]:
+      - generic [ref=e1112]:
+        - heading "Technology" [level=3] [ref=e1113]
+        - img "Shopify Partners" [ref=e1115]
+      - generic [ref=e1116]:
+        - link "Web Development" [ref=e1117] [cursor=pointer]:
+          - /url: /services/web-development
+          - text: Web Development
+          - img [ref=e1118]
+        - generic [ref=e1121]:
+          - link "Website Development" [ref=e1122] [cursor=pointer]:
+            - /url: /services/web-development/website-development
+          - link "Web Applications" [ref=e1123] [cursor=pointer]:
+            - /url: /services/web-development/web-applications
+          - link "SaaS Platforms" [ref=e1124] [cursor=pointer]:
+            - /url: /services/web-development/saas-platforms
+          - link "Content Platforms" [ref=e1125] [cursor=pointer]:
+            - /url: /services/web-development/content-platforms
+          - link "API Integrations" [ref=e1126] [cursor=pointer]:
+            - /url: /services/web-development/api-integrations
+          - link "Maintenance & Support" [ref=e1127] [cursor=pointer]:
+            - /url: /services/web-development/maintenance-support
+          - link "Scaling & Performance" [ref=e1128] [cursor=pointer]:
+            - /url: /services/web-development/scaling-performance
+      - generic [ref=e1129]:
+        - link "eCommerce" [ref=e1130] [cursor=pointer]:
+          - /url: /services/ecommerce
+          - text: eCommerce
+          - img [ref=e1131]
+        - generic [ref=e1134]:
+          - link "Shopify Stores" [ref=e1135] [cursor=pointer]:
+            - /url: /services/ecommerce/shopify-stores
+          - link "Custom eCommerce" [ref=e1136] [cursor=pointer]:
+            - /url: /services/ecommerce/custom-ecommerce
+          - link "Platform Migration & Scaling" [ref=e1137] [cursor=pointer]:
+            - /url: /services/ecommerce/platform-migration-scaling
+          - link "Conversion Rate Optimization" [ref=e1138] [cursor=pointer]:
+            - /url: /services/ecommerce/conversion-rate-optimization
+          - link "B2B & Enterprise Portals" [ref=e1139] [cursor=pointer]:
+            - /url: /services/ecommerce/b2b-enterprise-portals
+          - link "Multi-Vendor Marketplaces" [ref=e1140] [cursor=pointer]:
+            - /url: /services/ecommerce/multi-vendor-marketplaces
+          - link "Membership Platforms" [ref=e1141] [cursor=pointer]:
+            - /url: /services/ecommerce/membership-platforms
+      - generic [ref=e1142]:
+        - link "Web & Mobile Applications" [ref=e1143] [cursor=pointer]:
+          - /url: /services/web-mobile-applications
+          - text: Web & Mobile Applications
+          - img [ref=e1144]
+        - generic [ref=e1147]:
+          - link "iOS & Android Apps" [ref=e1148] [cursor=pointer]:
+            - /url: /services/web-mobile-applications/ios-android-apps
+          - link "Internal Business Tools" [ref=e1149] [cursor=pointer]:
+            - /url: /services/web-mobile-applications/internal-business-tools
+          - link "API Development" [ref=e1150] [cursor=pointer]:
+            - /url: /services/web-mobile-applications/api-development
+          - link "Booking & Scheduling" [ref=e1151] [cursor=pointer]:
+            - /url: /services/web-mobile-applications/booking-scheduling
+          - link "LMS & Education Platforms" [ref=e1152] [cursor=pointer]:
+            - /url: /services/web-mobile-applications/lms-education-platforms
+          - link "Payments Systems" [ref=e1153] [cursor=pointer]:
+            - /url: /services/web-mobile-applications/payments-systems
+      - generic [ref=e1154]:
+        - link "Embedded & Hardware" [ref=e1155] [cursor=pointer]:
+          - /url: /services/embedded-hardware
+          - text: Embedded & Hardware
+          - img [ref=e1156]
+        - generic [ref=e1159]:
+          - link "Consumer Electronics UI" [ref=e1160] [cursor=pointer]:
+            - /url: /services/embedded-hardware/consumer-electronics-ui
+          - link "Touch & Display Systems" [ref=e1161] [cursor=pointer]:
+            - /url: /services/embedded-hardware/touch-display-systems
+          - link "Custom Interaction Layers" [ref=e1162] [cursor=pointer]:
+            - /url: /services/embedded-hardware/custom-interaction-layers
+          - link "Smart Firmware & Sensors" [ref=e1163] [cursor=pointer]:
+            - /url: /services/embedded-hardware/smart-firmware-sensors
+          - link "Industrial HMI & Control" [ref=e1164] [cursor=pointer]:
+            - /url: /services/embedded-hardware/industrial-hmi-control
+    - img "Lesse Studio Logo" [ref=e1165]
+    - generic [ref=e1168] [cursor=pointer]:
+      - link "INSTAGRAM" [ref=e1169]:
+        - /url: https://www.instagram.com/lesse.studio/
+      - link "LINKEDIN" [ref=e1170]:
+        - /url: https://www.linkedin.com/company/lesse-studio/
+      - link "DRIBBLE" [ref=e1171]:
+        - /url: https://dribbble.com/lesse-studio
+      - link "MAIL" [ref=e1172]:
+        - /url: mailto:contact@lesse.studio

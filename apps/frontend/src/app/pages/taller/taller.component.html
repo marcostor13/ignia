@@ -5,9 +5,13 @@
       <img src="/Satochi.png" alt="Ignia" height="34" />
     </a>
     <div class="nav__right">
-      <span class="nav__cupos">⚡ Solo 30 cupos</span>
+      <span class="nav__cupos">Solo 30 cupos</span>
       <button class="btn-cta-nav" (click)="scrollTo('form')">
-        Reservar →
+        <span class="btn__label">Reservar</span>
+        <span class="btn__arrows" aria-hidden="true">
+          <span class="btn__arr">→</span>
+          <span class="btn__arr">→</span>
+        </span>
       </button>
     </div>
   </div>
@@ -22,16 +26,55 @@
     <div class="hero__orb hero__orb--2"></div>
     <div class="hero__orb hero__orb--3"></div>
     <div class="hero__grid"></div>
+    <div class="hero__noise"></div>
   </div>
 
   <div class="hero__inner">
 
     <!-- Columna izquierda: contenido -->
     <div class="hero__content">
-      <span class="hero__badge">
+      <div class="hero__badge">
         <span class="badge-dot"></span>
-        TALLER GRATUITO EN VIVO
-      </span>
+        <span class="badge-live">EN VIVO</span>
+        <span class="badge-div"></span>
+        <span>Taller Gratuito de Inteligencia Artificial</span>
+        <span class="badge-div"></span>
+        <span class="badge-flags">🇵🇪 🇨🇴 🇪🇨 🇲🇽 🇦🇷</span>
+      </div>
+
+      <div class="hero__date">
+        <div class="hero__date-main">
+          <span class="hero__date-icon">📅</span>
+          <span class="hero__date-text">{{ tallerDate.label }}</span>
+        </div>
+        <div class="hero__date-times">
+          <div class="hero__date-tz">
+            <span class="tz-flag">🇵🇪</span>
+            <span class="tz-country">Perú</span>
+            <span class="tz-time">11:00 AM</span>
+          </div>
+          <div class="hero__date-tz">
+            <span class="tz-flag">🇨🇴</span>
+            <span class="tz-country">Colombia</span>
+            <span class="tz-time">11:00 AM</span>
+          </div>
+          <div class="hero__date-tz">
+            <span class="tz-flag">🇪🇨</span>
+            <span class="tz-country">Ecuador</span>
+            <span class="tz-time">11:00 AM</span>
+          </div>
+          <div class="hero__date-tz">
+            <span class="tz-flag">🇲🇽</span>
+            <span class="tz-country">México</span>
+            <span class="tz-time">10:00 AM</span>
+          </div>
+          <div class="hero__date-tz">
+            <span class="tz-flag">🇦🇷</span>
+            <span class="tz-country">Argentina</span>
+            <span class="tz-time">1:00 PM</span>
+          </div>
+        </div>
+      </div>
 
       <h1 class="hero__title">
         De Cero a IA:<br />
@@ -131,8 +174,15 @@
             (click)="submitLead()"
             [disabled]="formLoading() || !formEmail().trim()"
           >
-            @if (formLoading()) { Registrando... }
-            @else { Reservar mi cupo gratis → }
+            @if (formLoading()) {
+              <span class="btn__label">Registrando...</span>
+            } @else {
+              <span class="btn__label">Reservar mi cupo gratis</span>
+              <span class="btn__arrows" aria-hidden="true">
+                <span class="btn__arr">→</span>
+                <span class="btn__arr">→</span>
+              </span>
+            }
           </button>
 
           <p class="form-legal">Sin spam. Podés darte de baja cuando quieras.</p>
@@ -174,6 +224,31 @@
   </div>
 </section>
 
+<!-- ── STATS STRIP ─────────────────────────────────────────────────────────── -->
+<section class="stats-strip">
+  <div class="stats-strip__inner">
+    <div class="stat-item">
+      <span class="stat-num">30</span>
+      <span class="stat-label">Cupos máximos</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">5</span>
+      <span class="stat-label">Módulos prácticos</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">$0</span>
+      <span class="stat-label">Costo total</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">1 día</span>
+      <span class="stat-label">Para resultados reales</span>
+    </div>
+  </div>
+</section>
+
 <!-- ── MÓDULOS ────────────────────────────────────────────────────────────── -->
 <section class="modules-section">
   <div class="container">
@@ -211,7 +286,13 @@
         <p class="total-box__label">Valor total de todo lo que recibís:</p>
         <p class="total-box__old"><s>$1,185 USD</s></p>
         <p class="total-box__free">Tu precio hoy: <strong>$0</strong></p>
-        <button class="btn-primary" (click)="scrollTo('form')">Reservar mi cupo gratis →</button>
+        <button class="btn-primary" (click)="scrollTo('form')">
+          <span class="btn__label">Reservar mi cupo gratis</span>
+          <span class="btn__arrows" aria-hidden="true">
+            <span class="btn__arr">→</span>
+            <span class="btn__arr">→</span>
+          </span>
+        </button>
         <p class="total-box__scarcity">⚠️ Solo 30 cupos disponibles</p>
       </div>
     </div>
@@ -264,8 +345,9 @@
     <div class="details-strip reveal">
       <div class="detail-item">
         <span>📅</span>
-        <span class="detail-label">Fecha</span>
-        <span class="detail-val">Por confirmar</span>
+        <span class="detail-label">Fecha &amp; Hora</span>
+        <span class="detail-val">{{ tallerDate.label }}</span>
+        <span class="detail-sub">11:00 AM · Lima (PE)</span>
       </div>
       <div class="detail-sep"></div>
       <div class="detail-item">
@@ -318,7 +400,11 @@
 
     <div class="faq-cta reveal">
       <button class="btn-primary btn-primary--lg" (click)="scrollTo('form')">
-        Reservar mi cupo gratis →
+        <span class="btn__label">Reservar mi cupo gratis</span>
+        <span class="btn__arrows" aria-hidden="true">
+          <span class="btn__arr">→</span>
+          <span class="btn__arr">→</span>
+        </span>
       </button>
       <p>Solo 30 cupos · Cierra cuando se llenen</p>
     </div>
@@ -329,13 +415,13 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="/Satochi.png" alt="Ignia" height="26" />
+      <img src="/logo_b.png" alt="Ignia" height="26" />
       <span>Ignia</span>
     </div>
     <p class="footer__copy">© 2025 Ignia · Desarrollo web e IA a medida.</p>
     <div class="footer__links">
       <a routerLink="/">Volver al sitio</a>
-      <a href="mailto:hola@ignia.dev">Contacto</a>
+      <a href="mailto:admin@ignia.site">Contacto</a>
     </div>
   </div>
 </footer>

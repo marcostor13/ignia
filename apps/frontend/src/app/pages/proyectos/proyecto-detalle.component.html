@@ -1,0 +1,139 @@
+<app-nav theme="dark"></app-nav>
+
+@if (project()) {
+
+<!-- ── PROJECT HERO ───────────────────────────────────────────────────────── -->
+<section class="project-hero" [style.background]="project()!.accent">
+  <div class="project-hero__inner" [class.project-hero__inner--split]="!!project()!.image">
+    <div class="project-hero__content">
+      <div class="project-hero__top">
+        <span class="project-hero__category">{{ project()!.category }}</span>
+        <span class="project-hero__year">{{ project()!.year }}</span>
+      </div>
+      <h1 class="project-hero__title">{{ project()!.title }}</h1>
+      <p class="project-hero__client">{{ project()!.client }}</p>
+      <p class="project-hero__tagline">{{ project()!.tagline }}</p>
+      <div class="project-hero__tags">
+        @for (tag of project()!.tags; track tag) {
+          <span class="hero-tag">{{ tag }}</span>
+        }
+      </div>
+    </div>
+    @if (project()!.image) {
+      <div class="project-hero__mockup">
+        <img [src]="project()!.image" [alt]="project()!.title" />
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ── RESULTS BAR ────────────────────────────────────────────────────────── -->
+<section class="results-bar">
+  <div class="results-bar__inner">
+    @for (r of project()!.results; track r.label; let last = $last) {
+      <div class="results-bar__item">
+        <span class="results-bar__value">{{ r.value }}</span>
+        <span class="results-bar__label">{{ r.label }}</span>
+      </div>
+      @if (!last) { <div class="results-bar__sep"></div> }
+    }
+  </div>
+</section>
+
+<!-- ── CHALLENGE ─────────────────────────────────────────────────────────── -->
+<section class="challenge-section">
+  <div class="challenge-inner">
+    <div class="challenge-left reveal">
+      <span class="eyebrow">El desafío</span>
+      <h2>¿Cuál era el<br />problema?</h2>
+      <p class="challenge-text">{{ project()!.challenge }}</p>
+    </div>
+    <div class="challenge-right reveal" style="transition-delay: 0.15s">
+      <span class="eyebrow">Stack tecnológico</span>
+      <h3>Tecnologías utilizadas</h3>
+      <ol class="tech-stack-list">
+        @for (tech of project()!.technologies; track tech; let i = $index) {
+          <li class="tech-stack-item">
+            <span class="tech-stack-item__num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span class="tech-stack-item__name">{{ tech }}</span>
+          </li>
+        }
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTION ───────────────────────────────────────────────────────────── -->
+<section class="solution-section">
+  <div class="solution-inner">
+    <div class="solution-content reveal">
+      <span class="eyebrow">La solución</span>
+      <h2>¿Cómo lo resolvimos?</h2>
+      <p class="solution-text">{{ project()!.solution }}</p>
+    </div>
+    @if (project()!.image) {
+      <div class="solution-mockup">
+        <img [src]="project()!.image" [alt]="project()!.title" />
+      </div>
+    } @else {
+      <div class="solution-accent" [style.background]="project()!.accentLight">
+        <div class="solution-accent__num">{{ project()!.slug.substring(0, 2).toUpperCase() }}</div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ── OTHER PROJECTS ─────────────────────────────────────────────────────── -->
+<section class="other-projects">
+  <div class="other-projects__inner">
+    <div class="other-projects__head reveal">
+      <span class="eyebrow">Más proyectos</span>
+      <h2>Sigue explorando<br />nuestro trabajo.</h2>
+      <a routerLink="/proyectos" class="btn-outline">Ver todos los proyectos →</a>
+    </div>
+    <div class="other-cards">
+      @for (p of otherProjects(); track p.slug; let i = $index) {
+        <a [routerLink]="['/proyectos', p.slug]" class="other-card reveal" [style.transition-delay]="(i * 0.1) + 's'">
+          <div class="other-card__strip"
+               [style.background]="p.accent"
+               [style.background-image]="p.image ? 'url(' + p.image + ')' : null"
+               [class.other-card__strip--img]="!!p.image"></div>
+          <div class="other-card__body">
+            <span class="other-card__category">{{ p.category }}</span>
+            <h3 class="other-card__title">{{ p.title }}</h3>
+            <p class="other-card__client">{{ p.client }}</p>
+            <p class="other-card__tagline">{{ p.tagline }}</p>
+            <div class="other-card__results">
+              @for (r of p.results.slice(0, 2); track r.label) {
+                <div class="result-micro">
+                  <strong>{{ r.value }}</strong>
+                  <span>{{ r.label }}</span>
+                </div>
+              }
+            </div>
+            <span class="other-card__link">
+              Ver caso
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────────────────────── -->
+<section class="cta-detalle">
+  <div class="cta-detalle__inner reveal">
+    <h2>¿Tu empresa necesita<br />una transformación así?</h2>
+    <p>Hablemos sobre tu proyecto. Primera consulta gratuita, sin compromiso.</p>
+    <a href="mailto:admin@ignia.site" class="btn-white">
+      Escribirnos ahora
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+}
+
+<app-footer></app-footer>

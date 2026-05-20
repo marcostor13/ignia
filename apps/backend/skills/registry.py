@@ -6,6 +6,8 @@ from .implementations import (
     TokenCalculatorSkill,
     ContextCompressorSkill,
 )
+from .microsoft_calendar import ScheduleMeetingSkill
+from .open_calendar import OpenCalendarSkill
 
 
 class SkillRegistry:
@@ -22,6 +24,8 @@ class SkillRegistry:
             SummarizeSkill(),
             TokenCalculatorSkill(),
             ContextCompressorSkill(),
+            ScheduleMeetingSkill(),
+            OpenCalendarSkill(),
         ]
         for skill in defaults:
             self.register(skill)

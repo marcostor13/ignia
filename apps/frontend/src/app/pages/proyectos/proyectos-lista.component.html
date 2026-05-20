@@ -1,0 +1,87 @@
+<app-nav></app-nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
+<section class="hero-proyectos">
+  <div class="hero-proyectos__inner">
+    <div class="hero-proyectos__content">
+      <span class="hero-proyectos__eyebrow">Proyectos</span>
+      <h1 class="hero-proyectos__title">
+        Resultados reales<br />
+        para empresas<br />
+        <span class="title-accent">reales.</span>
+      </h1>
+      <p class="hero-proyectos__sub">
+        Cada proyecto es una historia de transformación digital.
+        Tecnología que resuelve problemas de negocio concretos.
+      </p>
+    </div>
+    <div class="hero-proyectos__meta">
+      <div class="hero-stat">
+        <span class="hero-stat__value">{{ projects.length }}</span>
+        <span class="hero-stat__label">Casos publicados</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat__value">100%</span>
+        <span class="hero-stat__label">Proyectos entregados</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat__value">3</span>
+        <span class="hero-stat__label">Industrias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS LIST ──────────────────────────────────────────────────────── -->
+<section class="projects-editorial">
+  @for (p of projects; track p.slug; let i = $index; let odd = $odd) {
+    <a [routerLink]="['/proyectos', p.slug]" class="editorial-row reveal" [class.editorial-row--reverse]="odd" [style.transition-delay]="(i * 0.08) + 's'">
+      <div class="editorial-visual"
+           [style.background]="p.accent"
+           [style.background-image]="p.image ? 'url(' + p.image + ')' : null"
+           [class.editorial-visual--img]="!!p.image">
+        <div class="editorial-visual__num">{{ (i + 1).toString().padStart(2, '0') }}</div>
+        <div class="editorial-visual__tags">
+          @for (tag of p.tags.slice(0, 4); track tag) {
+            <span>{{ tag }}</span>
+          }
+        </div>
+      </div>
+      <div class="editorial-content">
+        <div class="editorial-content__top">
+          <span class="editorial-category">{{ p.category }}</span>
+          <span class="editorial-year">{{ p.year }}</span>
+        </div>
+        <h2 class="editorial-title">{{ p.title }}</h2>
+        <p class="editorial-client">{{ p.client }}</p>
+        <p class="editorial-tagline">{{ p.tagline }}</p>
+        <div class="editorial-results">
+          @for (r of p.results.slice(0, 2); track r.label) {
+            <div class="result-pill">
+              <strong>{{ r.value }}</strong>
+              <span>{{ r.label }}</span>
+            </div>
+          }
+        </div>
+        <div class="editorial-link">
+          Ver caso completo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </a>
+  }
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────────────── -->
+<section class="cta-proyectos">
+  <div class="cta-proyectos__inner reveal">
+    <h2>¿Tu empresa podría ser<br />el próximo caso?</h2>
+    <p>Trabajamos con empresas que quieren resultados medibles. Hablemos de tu proyecto.</p>
+    <a href="https://outlook.office.com/bookwithme/user/a9497d377a0445eea242b5cb788396bd@ignia.site/meetingtype/Eimuu4q_r0-V7IA3PC_42w2?anonymous&ismsaljsauthenabled&ep=mlink" target="_blank" rel="noopener noreferrer" class="btn-white">
+      Agendar llamada gratuita
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,238 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Ignia" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Ignia" [ref=e7]
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - button "Servicios ▾" [ref=e10] [cursor=pointer]:
+            - text: Servicios
+            - generic [ref=e11]: ▾
+          - generic:
+            - link "Plataformas Web Apps y sitios a medida":
+              - /url: /servicios/plataformas-web
+              - generic:
+                - img
+              - generic:
+                - strong: Plataformas Web
+                - generic: Apps y sitios a medida
+            - link "Consultoría & IA Estrategia y transformación digital":
+              - /url: /servicios/consultoria-ti
+              - generic:
+                - img
+              - generic:
+                - strong: Consultoría & IA
+                - generic: Estrategia y transformación digital
+            - link "Automatización Procesos eficientes a escala":
+              - /url: /servicios/automatizacion
+              - generic:
+                - img
+              - generic:
+                - strong: Automatización
+                - generic: Procesos eficientes a escala
+        - listitem [ref=e12]:
+          - link "Proyectos" [ref=e13] [cursor=pointer]:
+            - /url: /proyectos
+      - generic [ref=e14]:
+        - link "admin@ignia.site" [ref=e15] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - link "Empezar" [ref=e16] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+          - text: Empezar
+          - img [ref=e17]
+  - generic [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]: Proyectos
+      - heading "Resultados reales para empresas reales." [level=1] [ref=e23]:
+        - text: Resultados reales
+        - text: para empresas
+        - text: reales.
+      - paragraph [ref=e24]: Cada proyecto es una historia de transformación digital. Tecnología que resuelve problemas de negocio concretos.
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: "5"
+        - generic [ref=e28]: Casos publicados
+      - generic [ref=e29]:
+        - generic [ref=e30]: 100%
+        - generic [ref=e31]: Proyectos entregados
+      - generic [ref=e32]:
+        - generic [ref=e33]: "3"
+        - generic [ref=e34]: Industrias
+  - generic [ref=e35]:
+    - link "01 RRHH ERP Biometría Angular ERP de Recursos Humanos 2024 AsisteYa AsisteYa! ERP de RRHH con biometría facial, huella digital y cálculo de planilla completo. 95% Reducción en errores de planilla 2 hs vs 2 días Tiempo de cierre de planilla Ver caso completo" [ref=e36] [cursor=pointer]:
+      - /url: /proyectos/asisteya
+      - generic [ref=e37]:
+        - generic [ref=e38]: "01"
+        - generic [ref=e39]:
+          - generic [ref=e40]: RRHH
+          - generic [ref=e41]: ERP
+          - generic [ref=e42]: Biometría
+          - generic [ref=e43]: Angular
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: ERP de Recursos Humanos
+          - generic [ref=e47]: "2024"
+        - heading "AsisteYa" [level=2] [ref=e48]
+        - paragraph [ref=e49]: AsisteYa!
+        - paragraph [ref=e50]: ERP de RRHH con biometría facial, huella digital y cálculo de planilla completo.
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - strong [ref=e53]: 95%
+            - generic [ref=e54]: Reducción en errores de planilla
+          - generic [ref=e55]:
+            - strong [ref=e56]: 2 hs vs 2 días
+            - generic [ref=e57]: Tiempo de cierre de planilla
+        - generic [ref=e58]:
+          - text: Ver caso completo
+          - img [ref=e59]
+    - link "02 Finanzas Viáticos Angular NestJS Plataforma Web 2024 Viatika Viatika Administración de viáticos, anticipos y contabilidad de gastos por proyecto. -80% Tiempo de aprobación de anticipos 100% Trazabilidad de gastos Ver caso completo" [ref=e61] [cursor=pointer]:
+      - /url: /proyectos/viatika
+      - generic [ref=e62]:
+        - generic [ref=e63]: "02"
+        - generic [ref=e64]:
+          - generic [ref=e65]: Finanzas
+          - generic [ref=e66]: Viáticos
+          - generic [ref=e67]: Angular
+          - generic [ref=e68]: NestJS
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - generic [ref=e71]: Plataforma Web
+          - generic [ref=e72]: "2024"
+        - heading "Viatika" [level=2] [ref=e73]
+        - paragraph [ref=e74]: Viatika
+        - paragraph [ref=e75]: Administración de viáticos, anticipos y contabilidad de gastos por proyecto.
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - strong [ref=e78]: "-80%"
+            - generic [ref=e79]: Tiempo de aprobación de anticipos
+          - generic [ref=e80]:
+            - strong [ref=e81]: 100%
+            - generic [ref=e82]: Trazabilidad de gastos
+        - generic [ref=e83]:
+          - text: Ver caso completo
+          - img [ref=e84]
+    - link "03 Minería ERP Consultoría Automatización Consultoría & ERP a medida 2024 ERP Tecmeing Tecmeing Consultoría de procesos y ERP a medida para empresa de estructuras metálicas para minería. 20+ Procesos identificados y mapeados 6 Áreas integradas en el ERP Ver caso completo" [ref=e86] [cursor=pointer]:
+      - /url: /proyectos/tecmeing
+      - generic [ref=e87]:
+        - generic [ref=e88]: "03"
+        - generic [ref=e89]:
+          - generic [ref=e90]: Minería
+          - generic [ref=e91]: ERP
+          - generic [ref=e92]: Consultoría
+          - generic [ref=e93]: Automatización
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]: Consultoría & ERP a medida
+          - generic [ref=e97]: "2024"
+        - heading "ERP Tecmeing" [level=2] [ref=e98]
+        - paragraph [ref=e99]: Tecmeing
+        - paragraph [ref=e100]: Consultoría de procesos y ERP a medida para empresa de estructuras metálicas para minería.
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - strong [ref=e103]: 20+
+            - generic [ref=e104]: Procesos identificados y mapeados
+          - generic [ref=e105]:
+            - strong [ref=e106]: "6"
+            - generic [ref=e107]: Áreas integradas en el ERP
+        - generic [ref=e108]:
+          - text: Ver caso completo
+          - img [ref=e109]
+    - link "04 USA Leads Cotizaciones Angular Plataforma Web + Generación de Leads 2025 Redline Installers Redline Installers (USA) Plataforma de cotización y captación de leads para empresa especialista en almacenes en USA. +300% Leads digitales capturados -85% Tiempo de respuesta a prospects Ver caso completo" [ref=e111] [cursor=pointer]:
+      - /url: /proyectos/redline
+      - generic [ref=e112]:
+        - generic [ref=e113]: "04"
+        - generic [ref=e114]:
+          - generic [ref=e115]: USA
+          - generic [ref=e116]: Leads
+          - generic [ref=e117]: Cotizaciones
+          - generic [ref=e118]: Angular
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]: Plataforma Web + Generación de Leads
+          - generic [ref=e122]: "2025"
+        - heading "Redline Installers" [level=2] [ref=e123]
+        - paragraph [ref=e124]: Redline Installers (USA)
+        - paragraph [ref=e125]: Plataforma de cotización y captación de leads para empresa especialista en almacenes en USA.
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - strong [ref=e128]: +300%
+            - generic [ref=e129]: Leads digitales capturados
+          - generic [ref=e130]:
+            - strong [ref=e131]: "-85%"
+            - generic [ref=e132]: Tiempo de respuesta a prospects
+        - generic [ref=e133]:
+          - text: Ver caso completo
+          - img [ref=e134]
+    - link "05 USA IA iOS Stripe Plataforma Web + App iOS + IA 2025 BA Kitchen & Bath BA Kitchen & Bath Design (USA) Cotización con IA, plataforma multi-rol e integración con Stripe para empresa de remodelación en USA. 3 hs → 8 min Tiempo de cotización 3 roles Plataformas desarrolladas Ver caso completo" [ref=e136] [cursor=pointer]:
+      - /url: /proyectos/ba-kitchen
+      - generic [ref=e137]:
+        - generic [ref=e138]: "05"
+        - generic [ref=e139]:
+          - generic [ref=e140]: USA
+          - generic [ref=e141]: IA
+          - generic [ref=e142]: iOS
+          - generic [ref=e143]: Stripe
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - generic [ref=e146]: Plataforma Web + App iOS + IA
+          - generic [ref=e147]: "2025"
+        - heading "BA Kitchen & Bath" [level=2] [ref=e148]
+        - paragraph [ref=e149]: BA Kitchen & Bath Design (USA)
+        - paragraph [ref=e150]: Cotización con IA, plataforma multi-rol e integración con Stripe para empresa de remodelación en USA.
+        - generic [ref=e151]:
+          - generic [ref=e152]:
+            - strong [ref=e153]: 3 hs → 8 min
+            - generic [ref=e154]: Tiempo de cotización
+          - generic [ref=e155]:
+            - strong [ref=e156]: 3 roles
+            - generic [ref=e157]: Plataformas desarrolladas
+        - generic [ref=e158]:
+          - text: Ver caso completo
+          - img [ref=e159]
+  - generic [ref=e162]:
+    - heading "¿Tu empresa podría ser el próximo caso?" [level=2] [ref=e163]:
+      - text: ¿Tu empresa podría ser
+      - text: el próximo caso?
+    - paragraph [ref=e164]: Trabajamos con empresas que quieren resultados medibles. Hablemos de tu proyecto.
+    - link "Agendar llamada gratuita" [ref=e165] [cursor=pointer]:
+      - /url: mailto:admin@ignia.site
+      - text: Agendar llamada gratuita
+      - img [ref=e166]
+  - contentinfo [ref=e169]:
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - link "Ignia Ignia" [ref=e172] [cursor=pointer]:
+          - /url: /
+          - img "Ignia" [ref=e173]
+          - generic [ref=e174]: Ignia
+        - paragraph [ref=e175]: Transformamos empresas con tecnología que funciona.
+        - link "admin@ignia.site" [ref=e176] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e177]:
+        - generic [ref=e178]: Servicios
+        - link "Plataformas Web" [ref=e179] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+        - link "Consultoría & IA" [ref=e180] [cursor=pointer]:
+          - /url: /servicios/consultoria-ti
+        - link "Automatización" [ref=e181] [cursor=pointer]:
+          - /url: /servicios/automatizacion
+      - generic [ref=e182]:
+        - generic [ref=e183]: Empresa
+        - link "Proyectos" [ref=e184] [cursor=pointer]:
+          - /url: /proyectos
+        - link "Taller Gratuito" [ref=e185] [cursor=pointer]:
+          - /url: /taller
+        - link "Contacto" [ref=e186] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e187]:
+        - generic [ref=e188]: Contacto
+        - link "hola@ignia.dev" [ref=e189] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - link "WhatsApp" [ref=e190] [cursor=pointer]:
+          - /url: https://wa.me/5491100000000
+        - link "LinkedIn" [ref=e191] [cursor=pointer]:
+          - /url: https://linkedin.com/company/ignia
+    - generic [ref=e192]:
+      - generic [ref=e193]: © 2026 Ignia. Todos los derechos reservados.
+      - generic [ref=e194]: Desarrollo web, IA y automatización.

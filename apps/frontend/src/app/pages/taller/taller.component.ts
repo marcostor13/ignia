@@ -106,6 +106,29 @@ export class TallerComponent implements AfterViewInit, OnDestroy {
   openFaq = signal<number | null>(null);
   toggleFaq(i: number): void { this.openFaq.set(this.openFaq() === i ? null : i); }
 
+  tallerDate = this.getNextTallerDate();
+
+  private getNextTallerDate(): { label: string; dayShort: string } {
+    // Lima time = UTC-5 — always show tomorrow's session
+    const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Lima' }));
+    const candidate = new Date(now);
+    candidate.setDate(candidate.getDate() + 1);
+
+    // Skip Sundays
+    while (candidate.getDay() === 0) {
+      candidate.setDate(candidate.getDate() + 1);
+    }
+
+    const days = ['Dom', 'Lun', 'Mar', 'Miérc', 'Juev', 'Vier', 'Sáb'];
+    const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+                    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+    return {
+      dayShort: days[candidate.getDay()],
+      label: `${days[candidate.getDay()]}. ${candidate.getDate()} de ${months[candidate.getMonth()]}`,
+    };
+  }
+
   ngAfterViewInit(): void {
     window.addEventListener('scroll', this.scrollHandler, { passive: true });
 

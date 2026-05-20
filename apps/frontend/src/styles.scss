@@ -1,25 +1,24 @@
 // ─── Design tokens ────────────────────────────────────────────────────────────
 :root {
-  --brand-orange: #FF6035;
-  --brand-red:    #FF3A5C;
-  --brand-blue:   #2D2DB0;
-  --brand-gradient: linear-gradient(135deg, #FF6035, #FF3A5C);
+  --brand-red:      #E5322A;
+  --brand-red-dark: #C42820;
 
   // Light theme
   --bg:               #FFFFFF;
-  --surface:          #F6F6FB;
+  --surface:          #F5F5F5;
   --surface-elevated: #FFFFFF;
-  --text:             #0D0D1A;
-  --text-muted:       #6B6B8A;
+  --text:             #0D0D0D;
+  --text-muted:       #6B6B6B;
   --border:           rgba(0, 0, 0, 0.08);
   --shadow-sm:        0 2px 12px rgba(0, 0, 0, 0.06);
   --shadow-md:        0 8px 32px rgba(0, 0, 0, 0.09);
   --shadow-lg:        0 20px 56px rgba(0, 0, 0, 0.12);
 
-  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body:    'Inter', system-ui, sans-serif;
-  --radius:    12px;
-  --radius-lg: 20px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-ui:      'Syne', system-ui, sans-serif;
+  --font-body:    'Manrope', system-ui, sans-serif;
+  --radius:    6px;
+  --radius-lg: 12px;
 }
 
 // ─── Reset ────────────────────────────────────────────────────────────────────
@@ -39,18 +38,37 @@ a      { text-decoration: none; color: inherit; }
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
 .gradient-text {
-  background: var(--brand-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--brand-red);
+  -webkit-text-fill-color: var(--brand-red);
 }
 
 // Scroll reveal — toggled by IntersectionObserver
+$_ease: cubic-bezier(0.4, 0, 0.2, 1);
+
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0; transform: translateY(26px);
+  transition: opacity 0.58s $_ease, transform 0.58s $_ease;
   &.visible { opacity: 1; transform: none; }
+}
+.reveal-left {
+  opacity: 0; transform: translateX(-44px);
+  transition: opacity 0.62s $_ease, transform 0.62s $_ease;
+  &.visible { opacity: 1; transform: none; }
+}
+.reveal-right {
+  opacity: 0; transform: translateX(44px);
+  transition: opacity 0.62s $_ease, transform 0.62s $_ease;
+  &.visible { opacity: 1; transform: none; }
+}
+.reveal-scale {
+  opacity: 0; transform: scale(0.92) translateY(18px);
+  transition: opacity 0.58s $_ease, transform 0.58s $_ease;
+  &.visible { opacity: 1; transform: none; }
+}
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.7s $_ease;
+  &.visible { opacity: 1; }
 }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
@@ -68,5 +86,5 @@ a      { text-decoration: none; color: inherit; }
 }
 
 // ─── Focus / selection ────────────────────────────────────────────────────────
-:focus-visible { outline: 2px solid var(--brand-orange); outline-offset: 2px; border-radius: 4px; }
-::selection    { background: rgba(255, 96, 53, 0.15); color: var(--text); }
+:focus-visible { outline: 2px solid var(--brand-red); outline-offset: 2px; border-radius: 4px; }
+::selection    { background: rgba(229, 50, 42, 0.12); color: var(--text); }

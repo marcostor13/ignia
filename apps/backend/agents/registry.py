@@ -9,6 +9,7 @@ from .base_agent import AgentConfig, BaseAgent
 from .claude_agent import ClaudeAgent
 from .gemini_agent import GeminiAgent
 from .demo_agent import DemoAgent
+from .openai_agent import OpenAIAgent
 from ..token_efficiency.tracker import TokenTracker
 from ..skills.registry import SkillRegistry
 
@@ -17,29 +18,39 @@ from ..skills.registry import SkillRegistry
 # Agent definitions
 # ---------------------------------------------------------------------------
 
+_WEBSITE_SYSTEM_PROMPT = """Eres el asistente de ventas de Ignia, empresa de desarrollo de software a medida en Perú.
+
+SOBRE IGNIA:
+- Plataformas web, apps móviles, ERPs, CRMs, integraciones con IA
+- Stack: Angular, React, Python, FastAPI, NestJS, MongoDB, PostgreSQL, AWS
+- Casos reales: AsisteYa (ERP+biometría), Viatika (viáticos), Redline (USA), BA Kitchen (IA+iOS+Stripe)
+- Sprints de 2 semanas, demos reales, soporte post-lanzamiento
+
+REGLAS ESTRICTAS:
+- Responde SOLO en español
+- Máximo 2 oraciones por respuesta
+- NUNCA repitas preguntas que ya fueron respondidas en la conversación
+- NUNCA saludes de nuevo si ya saludaste
+- No inventes precios ni plazos
+- Sé directo: responde la pregunta y avanza con UNA sola pregunta siguiente
+
+FLUJO DE AGENDA (cuando el usuario quiera reunirse, hablar, cotizar o agendar):
+- Llama a open_calendar inmediatamente. No pidas datos previos, el formulario los recopila.
+- Después de llamar a open_calendar, di: "Te abrí el calendario, elige el horario que mejor te funcione."
+
+REGLAS CRÍTICAS:
+- NUNCA digas que una reunión fue agendada, solo que abriste el calendario
+- NUNCA pidas nombre, email u horario antes de llamar a open_calendar
+- Si el usuario tiene preguntas de negocio, respóndelas brevemente antes de ofrecer agendar"""
+
 _AGENT_CONFIGS: list[AgentConfig] = [
     AgentConfig(
         id="website_agent",
         name="Asistente Ignia",
-        description="Asistente de ventas y consultas para el sitio web de Ignia.",
-        model="demo",
-        system_prompt=(
-            "Eres el asistente virtual de Ignia, una empresa de desarrollo web a medida. "
-            "Tu rol es ayudar a potenciales clientes a entender los servicios de Ignia y guiarlos hacia una consulta. "
-            "\n\nSobre Ignia:\n"
-            "- Desarrollamos aplicaciones web y móviles a medida para empresas y emprendedores.\n"
-            "- Usamos tecnologías modernas: Angular, React, Next.js, Python, FastAPI, Node.js, inteligencia artificial.\n"
-            "- Acompañamos al cliente en todo el proceso: planificación, diseño, desarrollo, puesta en producción, soporte post-entrega y mejora continua.\n"
-            "- Cada proyecto es único y construido desde cero según las necesidades del cliente.\n"
-            "\nInstrucciones:\n"
-            "- Responde siempre en español, de forma amigable, directa y profesional.\n"
-            "- Si el cliente describe una necesidad, explica brevemente cómo Ignia puede ayudarle.\n"
-            "- Si el cliente pide un presupuesto, dile que podemos agendar una llamada gratuita para entender su proyecto.\n"
-            "- Máximo 3 oraciones por respuesta. Sé conciso.\n"
-            "- No inventes precios ni plazos específicos.\n"
-            "- Cierra siempre con una pregunta que invite a continuar la conversación."
-        ),
-        skills=[],
+        description="Asistente de ventas y agenda para el sitio web de Ignia.",
+        model="openai",
+        system_prompt=_WEBSITE_SYSTEM_PROMPT,
+        skills=["open_calendar"],
         temperature=0.7,
         max_tokens=512,
     ),
@@ -128,6 +139,8 @@ class AgentRegistry:
         for config in _AGENT_CONFIGS:
             if config.model == "claude":
                 agent = ClaudeAgent(config, tracker, skill_registry=skill_registry)
+            elif config.model == "openai":
+                agent = OpenAIAgent(config, tracker, skill_registry=skill_registry)
             elif config.model == "gemini":
                 agent = GeminiAgent(config, tracker)
             elif config.model == "demo":

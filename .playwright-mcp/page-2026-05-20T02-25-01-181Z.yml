@@ -1,0 +1,65 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - img "Ignia" [ref=e7]
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - button "Servicios ▾" [ref=e10] [cursor=pointer]:
+            - text: Servicios
+            - generic [ref=e11]: ▾
+          - generic:
+            - generic:
+              - generic:
+                - img
+              - generic:
+                - strong: Plataformas Web
+                - generic: Apps y sitios a medida
+            - generic:
+              - generic:
+                - img
+              - generic:
+                - strong: Consultoría & IA
+                - generic: Estrategia y transformación digital
+            - generic:
+              - generic:
+                - img
+              - generic:
+                - strong: Automatización
+                - generic: Procesos eficientes a escala
+        - listitem [ref=e12]:
+          - generic [ref=e13] [cursor=pointer]: Proyectos
+      - generic [ref=e14]:
+        - link "admin@ignia.site" [ref=e15] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - generic [ref=e16]:
+          - text: Empezar
+          - img [ref=e17]
+  - contentinfo [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - img "Ignia" [ref=e24]
+          - generic [ref=e25]: Ignia
+        - paragraph [ref=e26]: Transformamos empresas con tecnología que funciona.
+        - link "admin@ignia.site" [ref=e27] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e28]:
+        - generic [ref=e29]: Servicios
+        - generic [ref=e30]: Plataformas Web
+        - generic [ref=e31]: Consultoría & IA
+        - generic [ref=e32]: Automatización
+      - generic [ref=e33]:
+        - generic [ref=e34]: Empresa
+        - generic [ref=e35]: Proyectos
+        - generic [ref=e36]: Taller Gratuito
+        - link "Contacto" [ref=e37] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e38]:
+        - generic [ref=e39]: Contacto
+        - link "hola@ignia.dev" [ref=e40] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - link "WhatsApp" [ref=e41] [cursor=pointer]:
+          - /url: https://wa.me/5491100000000
+        - link "LinkedIn" [ref=e42] [cursor=pointer]:
+          - /url: https://linkedin.com/company/ignia
+    - generic [ref=e44]: Desarrollo web, IA y automatización.

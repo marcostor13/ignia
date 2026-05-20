@@ -1,0 +1,319 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Ignia" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Ignia" [ref=e7]
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - button "Servicios ▾" [ref=e10] [cursor=pointer]:
+            - text: Servicios
+            - generic [ref=e11]: ▾
+          - generic:
+            - link "Plataformas Web Apps y sitios a medida":
+              - /url: /servicios/plataformas-web
+              - generic:
+                - img
+              - generic:
+                - strong: Plataformas Web
+                - generic: Apps y sitios a medida
+            - link "Consultoría & IA Estrategia y transformación digital":
+              - /url: /servicios/consultoria-ti
+              - generic:
+                - img
+              - generic:
+                - strong: Consultoría & IA
+                - generic: Estrategia y transformación digital
+            - link "Automatización Procesos eficientes a escala":
+              - /url: /servicios/automatizacion
+              - generic:
+                - img
+              - generic:
+                - strong: Automatización
+                - generic: Procesos eficientes a escala
+        - listitem [ref=e12]:
+          - link "Proyectos" [ref=e13] [cursor=pointer]:
+            - /url: /proyectos
+      - generic [ref=e14]:
+        - link "admin@ignia.site" [ref=e15] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - link "Empezar" [ref=e16] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+          - text: Empezar
+          - img [ref=e17]
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - heading "Transformamos empresas con tecnología que funciona." [level=1] [ref=e24]:
+        - emphasis [ref=e26]: Transformamos
+        - emphasis [ref=e28]: empresas con
+        - emphasis [ref=e30]: tecnología
+        - emphasis [ref=e32]: que funciona.
+      - paragraph [ref=e33]: Desarrollo web, consultoría de TI, inteligencia artificial y automatización de procesos para empresas que quieren crecer.
+      - generic [ref=e34]:
+        - link "Ver servicios" [ref=e35] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+          - text: Ver servicios
+          - img [ref=e36]
+        - link "Ver proyectos" [ref=e38] [cursor=pointer]:
+          - /url: /proyectos
+      - generic [ref=e39]:
+        - generic [ref=e40]: ✓ Primera consulta gratis
+        - generic [ref=e41]: ✓ Sin costo inicial
+        - generic [ref=e42]: ✓ Respuesta en 24h
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - img "Ignia AI" [ref=e47]
+        - generic [ref=e48]:
+          - generic [ref=e49]: Asistente Ignia
+          - generic [ref=e50]: En línea
+        - generic [ref=e52]: IA
+      - generic [ref=e54]:
+        - img "AI" [ref=e56]
+        - generic [ref=e57]: ¡Hola! Soy el asistente de Ignia. ¿En qué puedo ayudarte hoy? Cuéntame sobre tu proyecto.
+      - generic [ref=e58]:
+        - textbox "Cuéntame sobre tu proyecto..." [ref=e59]
+        - button [disabled] [ref=e60]:
+          - img [ref=e61]
+  - generic [ref=e64]:
+    - generic [ref=e65]:
+      - generic [ref=e66]: Lo que hacemos
+      - heading "Tres servicios, un solo socio tecnológico." [level=2] [ref=e67]:
+        - text: Tres servicios,
+        - text: un solo socio tecnológico.
+      - paragraph [ref=e68]: "Cubrimos el ciclo completo de transformación digital: desde la plataforma web hasta la automatización de procesos internos."
+    - generic [ref=e69]:
+      - link "01 Desarrollo de Plataformas Web Aplicaciones web a medida que convierten y escalan. Ver servicio" [ref=e70] [cursor=pointer]:
+        - /url: /servicios/plataformas-web
+        - generic [ref=e72]:
+          - generic [ref=e73]: "01"
+          - heading "Desarrollo de Plataformas Web" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Aplicaciones web a medida que convierten y escalan.
+          - generic [ref=e76]:
+            - text: Ver servicio
+            - img [ref=e77]
+      - link "02 Consultoría de TI, IA y Automatización Estrategia tecnológica e inteligencia artificial para crecer más rápido. Ver servicio" [ref=e79] [cursor=pointer]:
+        - /url: /servicios/consultoria-ti
+        - generic [ref=e81]:
+          - generic [ref=e82]: "02"
+          - heading "Consultoría de TI, IA y Automatización" [level=3] [ref=e83]
+          - paragraph [ref=e84]: Estrategia tecnológica e inteligencia artificial para crecer más rápido.
+          - generic [ref=e85]:
+            - text: Ver servicio
+            - img [ref=e86]
+      - link "03 Automatización de Procesos para Empresas Elimina el trabajo manual que frena a tu empresa. Ver servicio" [ref=e88] [cursor=pointer]:
+        - /url: /servicios/automatizacion
+        - generic [ref=e90]:
+          - generic [ref=e91]: "03"
+          - heading "Automatización de Procesos para Empresas" [level=3] [ref=e92]
+          - paragraph [ref=e93]: Elimina el trabajo manual que frena a tu empresa.
+          - generic [ref=e94]:
+            - text: Ver servicio
+            - img [ref=e95]
+  - generic [ref=e98]:
+    - generic [ref=e99]:
+      - generic [ref=e100]: Proyectos
+      - generic [ref=e101]:
+        - heading "Resultados reales para empresas reales." [level=2] [ref=e102]:
+          - text: Resultados reales
+          - text: para empresas reales.
+        - link "Ver todos los proyectos →" [ref=e103] [cursor=pointer]:
+          - /url: /proyectos
+    - generic [ref=e104]:
+      - link "01 RRHH ERP Biometría 95% Reducción en errores de planilla 2 hs vs 2 días Tiempo de cierre de planilla ERP de Recursos Humanos 2024 AsisteYa ERP de RRHH con biometría facial, huella digital y cálculo de planilla completo. Ver caso completo" [ref=e105] [cursor=pointer]:
+        - /url: /proyectos/asisteya
+        - generic [ref=e106]:
+          - generic [ref=e107]: "01"
+          - generic [ref=e108]:
+            - generic [ref=e109]: RRHH
+            - generic [ref=e110]: ERP
+            - generic [ref=e111]: Biometría
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - strong [ref=e115]: 95%
+              - generic [ref=e116]: Reducción en errores de planilla
+            - generic [ref=e117]:
+              - strong [ref=e118]: 2 hs vs 2 días
+              - generic [ref=e119]: Tiempo de cierre de planilla
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: ERP de Recursos Humanos
+            - generic [ref=e123]: "2024"
+          - heading "AsisteYa" [level=3] [ref=e124]
+          - paragraph [ref=e125]: ERP de RRHH con biometría facial, huella digital y cálculo de planilla completo.
+          - generic [ref=e126]:
+            - text: Ver caso completo
+            - img [ref=e127]
+      - link "02 Finanzas Viáticos Angular -80% Tiempo de aprobación de anticipos 100% Trazabilidad de gastos Plataforma Web 2024 Viatika Administración de viáticos, anticipos y contabilidad de gastos por proyecto. Ver caso completo" [ref=e129] [cursor=pointer]:
+        - /url: /proyectos/viatika
+        - generic [ref=e130]:
+          - generic [ref=e131]: "02"
+          - generic [ref=e132]:
+            - generic [ref=e133]: Finanzas
+            - generic [ref=e134]: Viáticos
+            - generic [ref=e135]: Angular
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - strong [ref=e139]: "-80%"
+              - generic [ref=e140]: Tiempo de aprobación de anticipos
+            - generic [ref=e141]:
+              - strong [ref=e142]: 100%
+              - generic [ref=e143]: Trazabilidad de gastos
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - generic [ref=e146]: Plataforma Web
+            - generic [ref=e147]: "2024"
+          - heading "Viatika" [level=3] [ref=e148]
+          - paragraph [ref=e149]: Administración de viáticos, anticipos y contabilidad de gastos por proyecto.
+          - generic [ref=e150]:
+            - text: Ver caso completo
+            - img [ref=e151]
+      - link "03 Minería ERP Consultoría 20+ Procesos identificados y mapeados 6 Áreas integradas en el ERP Consultoría & ERP a medida 2024 ERP Tecmeing Consultoría de procesos y ERP a medida para empresa de estructuras metálicas para minería. Ver caso completo" [ref=e153] [cursor=pointer]:
+        - /url: /proyectos/tecmeing
+        - generic [ref=e154]:
+          - generic [ref=e155]: "03"
+          - generic [ref=e156]:
+            - generic [ref=e157]: Minería
+            - generic [ref=e158]: ERP
+            - generic [ref=e159]: Consultoría
+          - generic [ref=e161]:
+            - generic [ref=e162]:
+              - strong [ref=e163]: 20+
+              - generic [ref=e164]: Procesos identificados y mapeados
+            - generic [ref=e165]:
+              - strong [ref=e166]: "6"
+              - generic [ref=e167]: Áreas integradas en el ERP
+        - generic [ref=e168]:
+          - generic [ref=e169]:
+            - generic [ref=e170]: Consultoría & ERP a medida
+            - generic [ref=e171]: "2024"
+          - heading "ERP Tecmeing" [level=3] [ref=e172]
+          - paragraph [ref=e173]: Consultoría de procesos y ERP a medida para empresa de estructuras metálicas para minería.
+          - generic [ref=e174]:
+            - text: Ver caso completo
+            - img [ref=e175]
+      - link "04 USA Leads Cotizaciones +300% Leads digitales capturados -85% Tiempo de respuesta a prospects Plataforma Web + Generación de Leads 2025 Redline Installers Plataforma de cotización y captación de leads para empresa especialista en almacenes en USA. Ver caso completo" [ref=e177] [cursor=pointer]:
+        - /url: /proyectos/redline
+        - generic [ref=e178]:
+          - generic [ref=e179]: "04"
+          - generic [ref=e180]:
+            - generic [ref=e181]: USA
+            - generic [ref=e182]: Leads
+            - generic [ref=e183]: Cotizaciones
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - strong [ref=e187]: +300%
+              - generic [ref=e188]: Leads digitales capturados
+            - generic [ref=e189]:
+              - strong [ref=e190]: "-85%"
+              - generic [ref=e191]: Tiempo de respuesta a prospects
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - generic [ref=e194]: Plataforma Web + Generación de Leads
+            - generic [ref=e195]: "2025"
+          - heading "Redline Installers" [level=3] [ref=e196]
+          - paragraph [ref=e197]: Plataforma de cotización y captación de leads para empresa especialista en almacenes en USA.
+          - generic [ref=e198]:
+            - text: Ver caso completo
+            - img [ref=e199]
+      - link "05 USA IA iOS 3 hs → 8 min Tiempo de cotización 3 roles Plataformas desarrolladas Plataforma Web + App iOS + IA 2025 BA Kitchen & Bath Cotización con IA, plataforma multi-rol e integración con Stripe para empresa de remodelación en USA. Ver caso completo" [ref=e201] [cursor=pointer]:
+        - /url: /proyectos/ba-kitchen
+        - generic [ref=e202]:
+          - generic [ref=e203]: "05"
+          - generic [ref=e204]:
+            - generic [ref=e205]: USA
+            - generic [ref=e206]: IA
+            - generic [ref=e207]: iOS
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - strong [ref=e211]: 3 hs → 8 min
+              - generic [ref=e212]: Tiempo de cotización
+            - generic [ref=e213]:
+              - strong [ref=e214]: 3 roles
+              - generic [ref=e215]: Plataformas desarrolladas
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - generic [ref=e218]: Plataforma Web + App iOS + IA
+            - generic [ref=e219]: "2025"
+          - heading "BA Kitchen & Bath" [level=3] [ref=e220]
+          - paragraph [ref=e221]: Cotización con IA, plataforma multi-rol e integración con Stripe para empresa de remodelación en USA.
+          - generic [ref=e222]:
+            - text: Ver caso completo
+            - img [ref=e223]
+  - generic [ref=e227]:
+    - generic [ref=e228]:
+      - generic [ref=e229]: Por qué Ignia
+      - heading "Tecnología seria, resultados medibles." [level=2] [ref=e230]:
+        - text: Tecnología seria,
+        - text: resultados medibles.
+      - paragraph [ref=e231]: "No vendemos proyectos: construimos alianzas a largo plazo. Tu éxito es nuestro caso de estudio."
+      - link "Agendar llamada gratuita →" [ref=e232] [cursor=pointer]:
+        - /url: mailto:admin@ignia.site
+      - img "Equipo Ignia colaborando" [ref=e234]
+    - generic [ref=e235]:
+      - generic [ref=e236]:
+        - generic [ref=e237]: "01"
+        - generic [ref=e238]:
+          - heading "Tecnologías modernas" [level=4] [ref=e239]
+          - paragraph [ref=e240]: Angular, React, Python, IA. Usamos el stack correcto para cada problema, no el de moda.
+      - generic [ref=e241]:
+        - generic [ref=e242]: "02"
+        - generic [ref=e243]:
+          - heading "Proceso claro y transparente" [level=4] [ref=e244]
+          - paragraph [ref=e245]: Sprints de 2 semanas con demos reales. Ves avances concretos, no solo reportes de estado.
+      - generic [ref=e246]:
+        - generic [ref=e247]: "03"
+        - generic [ref=e248]:
+          - heading "Deploy en producción incluido" [level=4] [ref=e249]
+          - paragraph [ref=e250]: AWS, GCP, Vercel. CI/CD, SSL, monitoreo y soporte desde el primer día en producción.
+      - generic [ref=e251]:
+        - generic [ref=e252]: "04"
+        - generic [ref=e253]:
+          - heading "Mejora continua" [level=4] [ref=e254]
+          - paragraph [ref=e255]: Post-entrega no es el final. Analytics, iteraciones y soporte cuando los necesitas.
+  - generic [ref=e258]:
+    - heading "¿Listo para construir algo extraordinario?" [level=2] [ref=e259]
+    - paragraph [ref=e260]: Agenda una llamada gratuita de 30 minutos. Sin compromiso. Sin presión.
+    - generic [ref=e261]:
+      - link "Escribirnos ahora" [ref=e262] [cursor=pointer]:
+        - /url: mailto:admin@ignia.site
+        - text: Escribirnos ahora
+        - img [ref=e263]
+      - link "Ver taller gratuito de IA →" [ref=e265] [cursor=pointer]:
+        - /url: /taller
+  - contentinfo [ref=e267]:
+    - generic [ref=e268]:
+      - generic [ref=e269]:
+        - link "Ignia Ignia" [ref=e270] [cursor=pointer]:
+          - /url: /
+          - img "Ignia" [ref=e271]
+          - generic [ref=e272]: Ignia
+        - paragraph [ref=e273]: Transformamos empresas con tecnología que funciona.
+        - link "admin@ignia.site" [ref=e274] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e275]:
+        - generic [ref=e276]: Servicios
+        - link "Plataformas Web" [ref=e277] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+        - link "Consultoría & IA" [ref=e278] [cursor=pointer]:
+          - /url: /servicios/consultoria-ti
+        - link "Automatización" [ref=e279] [cursor=pointer]:
+          - /url: /servicios/automatizacion
+      - generic [ref=e280]:
+        - generic [ref=e281]: Empresa
+        - link "Proyectos" [ref=e282] [cursor=pointer]:
+          - /url: /proyectos
+        - link "Taller Gratuito" [ref=e283] [cursor=pointer]:
+          - /url: /taller
+        - link "Contacto" [ref=e284] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e285]:
+        - generic [ref=e286]: Contacto
+        - link "hola@ignia.dev" [ref=e287] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - link "WhatsApp" [ref=e288] [cursor=pointer]:
+          - /url: https://wa.me/5491100000000
+        - link "LinkedIn" [ref=e289] [cursor=pointer]:
+          - /url: https://linkedin.com/company/ignia
+    - generic [ref=e290]:
+      - generic [ref=e291]: © 2026 Ignia. Todos los derechos reservados.
+      - generic [ref=e292]: Desarrollo web, IA y automatización.

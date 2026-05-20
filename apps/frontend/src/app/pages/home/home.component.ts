@@ -13,6 +13,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavComponent } from '../../components/nav/nav.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { PROJECTS } from '../../data/projects.data';
+import { SERVICES } from '../../data/services.data';
+
+const BOOKING_URL =
+  'https://outlook.office.com/bookwithme/user/a9497d377a0445eea242b5cb788396bd@ignia.site/meetingtype/Eimuu4q_r0-V7IA3PC_42w2?anonymous&ismsaljsauthenabled&ep=mlink';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -22,7 +29,7 @@ interface ChatMessage {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, NavComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -31,190 +38,54 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   private http = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
-
-  // ── Chat signals ──────────────────────────────────────────────────────────
   messages = signal<ChatMessage[]>([]);
   inputText = signal<string>('');
   isLoading = signal<boolean>(false);
-  hasScrolled = signal<boolean>(false);
+  heroLoaded = signal(false);
+  services = SERVICES;
+  projects = PROJECTS;
 
   private observer: IntersectionObserver | null = null;
-  private scrollHandler = () => {
-    this.hasScrolled.set(window.scrollY > 60);
-  };
 
-  // ── Static data ───────────────────────────────────────────────────────────
-  projects = [
-    {
-      title: 'E-Commerce Especializado',
-      category: 'Plataforma Digital',
-      description:
-        'Tienda online con catálogo dinámico, pagos integrados y panel de administración personalizado.',
-      icon: '🛒',
-      gradient: 'linear-gradient(135deg, #1a1a3e, #2d2db0)',
-      tags: ['Angular', 'FastAPI', 'PostgreSQL', 'Stripe'],
-    },
-    {
-      title: 'Dashboard Analytics',
-      category: 'Herramienta Interna',
-      description:
-        'Panel de métricas en tiempo real para equipo de ventas con visualizaciones interactivas.',
-      icon: '📊',
-      gradient: 'linear-gradient(135deg, #1a1010, #FF3A5C55)',
-      tags: ['React', 'Python', 'WebSockets', 'TimescaleDB'],
-    },
-    {
-      title: 'Landing de Alto Impacto',
-      category: 'Marketing',
-      description:
-        'Sitio de conversión con IA integrada, A/B testing y optimización de velocidad Core Web Vitals.',
-      icon: '🚀',
-      gradient: 'linear-gradient(135deg, #0a1a10, #FF603533)',
-      tags: ['Next.js', 'Strapi', 'Vercel', 'IA'],
-    },
-    {
-      title: 'App de Gestión',
-      category: 'SaaS',
-      description:
-        'Plataforma multi-tenant para gestión de proyectos con notificaciones en tiempo real.',
-      icon: '⚙️',
-      gradient: 'linear-gradient(135deg, #1a0a2e, #6b21a855)',
-      tags: ['Angular', 'Node.js', 'Firebase', 'PWA'],
-    },
-  ];
-
-  pillars = [
-    {
-      icon: '⚡',
-      title: 'Tecnologías modernas',
-      description:
-        'Angular, React, Next.js, Python, IA integrada. Usamos el stack correcto para cada proyecto, no el de moda.',
-    },
-    {
-      icon: '🗺️',
-      title: 'Planificación completa',
-      description:
-        'Desde el brief inicial hasta el wireframe aprobado. Nada entra a desarrollo sin estar bien definido.',
-    },
-    {
-      icon: '🚀',
-      title: 'Puesta en producción',
-      description:
-        'Deploy en AWS, GCP, Netlify o Vercel. CI/CD, monitoreo y performance desde el día uno.',
-    },
-    {
-      icon: '🔄',
-      title: 'Mejora continua',
-      description:
-        'Post-entrega no es el final. Acompañamiento, analytics, iteraciones y soporte cuando lo necesitas.',
-    },
-  ];
-
-  process = [
-    { label: 'Planificación' },
-    { label: 'Diseño' },
-    { label: 'Desarrollo' },
-    { label: 'Producción' },
-    { label: 'Mejora continua' },
-  ];
-
-  painPoints = [
-    { icon: '😩', text: 'Tu web actual no genera consultas ni ventas' },
-    { icon: '🔍', text: 'Tu negocio no aparece en buscadores ni redes' },
-    { icon: '📱', text: 'Tu competencia ya tiene plataforma online' },
-    { icon: '⏰', text: 'Perdés tiempo en tareas que podrían automatizarse' },
-  ];
-
-  benefits = [
-    {
-      icon: '🎨',
-      title: 'Diseño único',
-      desc: 'Nada de templates. Tu identidad digital, construida desde cero para diferenciarte.',
-    },
-    {
-      icon: '⚡',
-      title: 'Tecnología moderna',
-      desc: 'Angular, React, Python, IA. Usamos lo que mejor resuelve tu problema, no lo de moda.',
-    },
-    {
-      icon: '📈',
-      title: 'Resultados medibles',
-      desc: 'Analytics integrado desde el día uno. Sabés exactamente qué funciona y qué mejorar.',
-    },
-  ];
-
-  processSteps = [
-    {
-      num: '01',
-      icon: '🗺️',
-      title: 'Planificación',
-      desc: 'Definimos juntos el alcance, funcionalidades y plazos reales.',
-    },
-    {
-      num: '02',
-      icon: '🎨',
-      title: 'Diseño',
-      desc: 'Wireframes y prototipo aprobado antes de escribir código.',
-    },
-    {
-      num: '03',
-      icon: '⚙️',
-      title: 'Desarrollo',
-      desc: 'Sprints de 2 semanas. Ves avances reales, no solo reportes.',
-    },
-    {
-      num: '04',
-      icon: '🚀',
-      title: 'Lanzamiento',
-      desc: 'Deploy en producción con CI/CD, SSL y monitoreo incluido.',
-    },
-    {
-      num: '05',
-      icon: '🔄',
-      title: 'Mejora continua',
-      desc: 'Analytics, soporte y actualizaciones post-entrega.',
-    },
-  ];
-
-  // ── Lifecycle ─────────────────────────────────────────────────────────────
   ngAfterViewInit(): void {
-    this.messages.set([
-      {
-        role: 'assistant',
-        content:
-          '¡Hola! Soy el asistente de Ignia 👋 ¿En qué puedo ayudarte hoy?',
-      },
-    ]);
+    this.messages.set([{
+      role: 'assistant',
+      content: '¡Hola! Soy el asistente de Ignia. ¿En qué puedo ayudarte hoy? Cuéntame sobre tu proyecto.',
+    }]);
 
-    window.addEventListener('scroll', this.scrollHandler, { passive: true });
+    setTimeout(() => this.heroLoaded.set(true), 80);
 
     this.observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            const el = e.target as HTMLElement;
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
     );
 
     setTimeout(() => {
-      document.querySelectorAll('.reveal').forEach((el) => {
-        this.observer?.observe(el);
-      });
-    }, 100);
+      document
+        .querySelectorAll(
+          '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, [data-anim]'
+        )
+        .forEach((el) => this.observer?.observe(el));
+    }, 120);
   }
 
   ngOnDestroy(): void {
-    window.removeEventListener('scroll', this.scrollHandler);
     this.observer?.disconnect();
   }
 
-  // ── Chat ──────────────────────────────────────────────────────────────────
   sendMessage(): void {
     const text = this.inputText().trim();
     if (!text || this.isLoading()) return;
+
+    // Capture history BEFORE adding the new user message
+    const history = this.messages().map(m => ({ role: m.role, content: m.content }));
 
     this.messages.update((msgs) => [...msgs, { role: 'user', content: text }]);
     this.inputText.set('');
@@ -222,22 +93,19 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.scrollChatToBottom();
 
     this.http
-      .post<{ message?: string; response?: string; content?: string }>(
+      .post<{ message?: string; response?: string; content?: string; action?: string }>(
         '/api/chat',
-        { agent_id: 'website_agent', message: text }
+        { agent_id: 'website_agent', message: text, conversation_history: history }
       )
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (res) => {
           const content =
-            res.message ??
-            res.response ??
-            res.content ??
-            'Gracias por tu mensaje. ¡Nos pondremos en contacto contigo pronto!';
-          this.messages.update((msgs) => [
-            ...msgs,
-            { role: 'assistant', content },
-          ]);
+            res.message ?? res.response ?? res.content ?? '¡Gracias! Nos pondremos en contacto pronto.';
+          this.messages.update((msgs) => [...msgs, { role: 'assistant', content }]);
+          if (res.action === 'open_calendar') {
+            window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+          }
           this.isLoading.set(false);
           this.scrollChatToBottom();
         },
@@ -247,7 +115,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
             {
               role: 'assistant',
               content:
-                'Estaré disponible cuando el servidor esté activo. Mientras tanto, escríbenos a hola@ignia.dev',
+                'Estaré disponible cuando el servidor esté activo. Mientras tanto: admin@ignia.site',
             },
           ]);
           this.isLoading.set(false);
@@ -256,18 +124,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       });
   }
 
-  scrollTo(id: string): void {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
   private scrollChatToBottom(): void {
     setTimeout(() => {
       if (this.chatContainer?.nativeElement) {
-        const el = this.chatContainer.nativeElement;
-        el.scrollTop = el.scrollHeight;
+        this.chatContainer.nativeElement.scrollTop =
+          this.chatContainer.nativeElement.scrollHeight;
       }
     }, 50);
   }

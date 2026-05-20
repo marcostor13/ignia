@@ -8,7 +8,7 @@ import logging
 import os
 from typing import Optional
 
-from fastapi import APIRouter, BackgroundTasks, HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr, field_validator
 
 from ..models.lead import lead_store
@@ -46,46 +46,67 @@ class LeadOut(BaseModel):
 # ── Background notifications ──────────────────────────────────────────────────
 
 async def _notify_all(email: str, name: Optional[str], phone: Optional[str], source: str) -> None:
-    """Runs after the HTTP response is sent. Fires all notifications in parallel-ish."""
+    import asyncio
 
-    # 1. Confirmation email to lead
-    await email_client.send_confirmation_to_lead(email=email, name=name)
+    # Run email notifications concurrently
+    results = await asyncio.gather(
+        email_client.send_confirmation_to_lead(email=email, name=name),
+        email_client.notify_team_new_lead(email=email, name=name, source=source),
+        return_exceptions=True,
+    )
+    for i, r in enumerate(results):
+        label = ["confirmation_email", "team_email"][i]
+        if isinstance(r, Exception):
+            print(f"[leads] {label} raised: {type(r).__name__}: {r}")
+        else:
+            print(f"[leads] {label} sent={r}")
 
-    # 2. Internal notification email to team
-    await email_client.notify_team_new_lead(email=email, name=name, source=source)
+    # WhatsApp notifications (non-critical)
+    try:
+        wa_result = await whatsapp.notify_new_lead(email=email, name=name, source=source)
+        if "error" in wa_result or wa_result.get("skipped"):
+            print(f"[leads] whatsapp team notify skipped/failed: {wa_result}")
+    except Exception as e:
+        print(f"[leads] whatsapp notify error: {e}")
 
-    # 3. WhatsApp notification to team
-    wa_result = await whatsapp.notify_new_lead(email=email, name=name, source=source)
-    if "error" in wa_result or wa_result.get("skipped"):
-        logger.warning("WhatsApp team notify skipped/failed: %s", wa_result)
-
-    # 4. WhatsApp welcome to lead (only if they gave their phone)
     if phone:
-        await whatsapp.send_welcome_to_lead(phone=phone, name=name)
+        try:
+            await whatsapp.send_welcome_to_lead(phone=phone, name=name)
+        except Exception as e:
+            print(f"[leads] whatsapp welcome error: {e}")
 
-    # 5. Mark as notified in DB
     await lead_store.mark_notified(email=email)
 
 
 # ── Routes ───────────────────────────────────────────────────────────────────
 
 @router.post("", response_model=LeadOut, status_code=201)
-async def create_lead(body: LeadIn, background_tasks: BackgroundTasks) -> LeadOut:
-    lead, is_new = await lead_store.upsert(
-        email=body.email,
-        name=body.name,
-        phone=body.phone,
-        source=body.source,
-    )
+async def create_lead(body: LeadIn) -> LeadOut:
+    print(f"[leads] POST /api/leads — email={body.email} source={body.source}")
+    try:
+        lead, is_new = await lead_store.upsert(
+            email=body.email,
+            name=body.name,
+            phone=body.phone,
+            source=body.source,
+        )
+        print(f"[leads] upsert ok — email={lead.email} is_new={is_new}")
+    except Exception as exc:
+        import traceback
+        print(f"[leads] DB ERROR: {type(exc).__name__}: {exc}")
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail="Error al guardar el registro.")
 
     if is_new:
-        background_tasks.add_task(
-            _notify_all,
+        print(f"[leads] nuevo lead — iniciando notificaciones")
+        await _notify_all(
             email=lead.email,
             name=lead.name,
             phone=lead.phone,
             source=lead.source,
         )
+    else:
+        print(f"[leads] lead ya existía — sin notificaciones")
 
     community_url = os.getenv("WHATSAPP_COMMUNITY_URL", "")
 

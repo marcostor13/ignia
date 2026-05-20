@@ -1,0 +1,192 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Ignia" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Ignia" [ref=e7]
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - button "Servicios ▾" [ref=e10] [cursor=pointer]:
+            - text: Servicios
+            - generic [ref=e11]: ▾
+          - generic:
+            - link "Plataformas Web Apps y sitios a medida":
+              - /url: /servicios/plataformas-web
+              - generic:
+                - img
+              - generic:
+                - strong: Plataformas Web
+                - generic: Apps y sitios a medida
+            - link "Consultoría & IA Estrategia y transformación digital":
+              - /url: /servicios/consultoria-ti
+              - generic:
+                - img
+              - generic:
+                - strong: Consultoría & IA
+                - generic: Estrategia y transformación digital
+            - link "Automatización Procesos eficientes a escala":
+              - /url: /servicios/automatizacion
+              - generic:
+                - img
+              - generic:
+                - strong: Automatización
+                - generic: Procesos eficientes a escala
+        - listitem [ref=e12]:
+          - link "Proyectos" [ref=e13] [cursor=pointer]:
+            - /url: /proyectos
+      - generic [ref=e14]:
+        - link "admin@ignia.site" [ref=e15] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - link "Empezar" [ref=e16] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+          - text: Empezar
+          - img [ref=e17]
+  - generic [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]: ERP de Recursos Humanos
+      - generic [ref=e24]: "2026"
+    - heading "AsisteYa" [level=1] [ref=e25]
+    - paragraph [ref=e26]: AsisteYa!
+    - paragraph [ref=e27]: ERP de RRHH con biometría facial, huella digital y cálculo de planilla completo.
+    - generic [ref=e28]:
+      - generic [ref=e29]: RRHH
+      - generic [ref=e30]: ERP
+      - generic [ref=e31]: Biometría
+      - generic [ref=e32]: Angular
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]: 95%
+      - generic [ref=e37]: Reducción en errores de planilla
+    - generic [ref=e39]:
+      - generic [ref=e40]: 2 hs vs 2 días
+      - generic [ref=e41]: Tiempo de cierre de planilla
+    - generic [ref=e43]:
+      - generic [ref=e44]: Multi-sede
+      - generic [ref=e45]: Sedes controladas en tiempo real
+    - generic [ref=e47]:
+      - generic [ref=e48]: "3"
+      - generic [ref=e49]: Métodos biométricos integrados
+  - generic [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]: El desafío
+      - heading "¿Cuál era el problema?" [level=2] [ref=e54]:
+        - text: ¿Cuál era el
+        - text: problema?
+      - paragraph [ref=e55]: Las empresas clientes gestionaban la asistencia y planilla de forma manual, con errores frecuentes en los cálculos, dificultad para controlar asistencia en múltiples sedes y procesos de pago lentos que generaban conflictos laborales.
+    - generic [ref=e56]:
+      - generic [ref=e57]: Stack tecnológico
+      - heading "Tecnologías utilizadas" [level=3] [ref=e58]
+      - list [ref=e59]:
+        - listitem [ref=e60]:
+          - generic [ref=e61]: "01"
+          - generic [ref=e62]: Angular
+        - listitem [ref=e63]:
+          - generic [ref=e64]: "02"
+          - generic [ref=e65]: NestJS
+        - listitem [ref=e66]:
+          - generic [ref=e67]: "03"
+          - generic [ref=e68]: MongoDB Atlas
+        - listitem [ref=e69]:
+          - generic [ref=e70]: "04"
+          - generic [ref=e71]: AWS
+        - listitem [ref=e72]:
+          - generic [ref=e73]: "05"
+          - generic [ref=e74]: Biometría Facial
+        - listitem [ref=e75]:
+          - generic [ref=e76]: "06"
+          - generic [ref=e77]: Huella Digital
+  - generic [ref=e79]:
+    - generic [ref=e80]:
+      - generic [ref=e81]: La solución
+      - heading "¿Cómo lo resolvimos?" [level=2] [ref=e82]
+      - paragraph [ref=e83]: Construimos un ERP modular con Angular en el frontend y NestJS en el backend, integrado con dispositivos biométricos (facial y huella) y generación de fotocheck. El motor de planilla calcula automáticamente horas extras, descuentos, bonos y retenciones según la normativa vigente.
+    - img "AsisteYa" [ref=e85]
+  - generic [ref=e87]:
+    - generic [ref=e88]:
+      - generic [ref=e89]: Más proyectos
+      - heading "Sigue explorando nuestro trabajo." [level=2] [ref=e90]:
+        - text: Sigue explorando
+        - text: nuestro trabajo.
+      - link "Ver todos los proyectos →" [ref=e91] [cursor=pointer]:
+        - /url: /proyectos
+    - generic [ref=e92]:
+      - link "Plataforma Web Viatika Viatika Administración de viáticos, anticipos y contabilidad de gastos por proyecto. -80% Tiempo de aprobación de anticipos 100% Trazabilidad de gastos Ver caso" [ref=e93] [cursor=pointer]:
+        - /url: /proyectos/viatika
+        - generic [ref=e95]:
+          - generic [ref=e96]: Plataforma Web
+          - heading "Viatika" [level=3] [ref=e97]
+          - paragraph [ref=e98]: Viatika
+          - paragraph [ref=e99]: Administración de viáticos, anticipos y contabilidad de gastos por proyecto.
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - strong [ref=e102]: "-80%"
+              - generic [ref=e103]: Tiempo de aprobación de anticipos
+            - generic [ref=e104]:
+              - strong [ref=e105]: 100%
+              - generic [ref=e106]: Trazabilidad de gastos
+          - generic [ref=e107]:
+            - text: Ver caso
+            - img [ref=e108]
+      - link "Consultoría & ERP a medida ERP Tecmeing Tecmeing Consultoría de procesos y ERP a medida para empresa de estructuras metálicas para minería. 20+ Procesos identificados y mapeados 6 Áreas integradas en el ERP Ver caso" [ref=e110] [cursor=pointer]:
+        - /url: /proyectos/tecmeing
+        - generic [ref=e112]:
+          - generic [ref=e113]: Consultoría & ERP a medida
+          - heading "ERP Tecmeing" [level=3] [ref=e114]
+          - paragraph [ref=e115]: Tecmeing
+          - paragraph [ref=e116]: Consultoría de procesos y ERP a medida para empresa de estructuras metálicas para minería.
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - strong [ref=e119]: 20+
+              - generic [ref=e120]: Procesos identificados y mapeados
+            - generic [ref=e121]:
+              - strong [ref=e122]: "6"
+              - generic [ref=e123]: Áreas integradas en el ERP
+          - generic [ref=e124]:
+            - text: Ver caso
+            - img [ref=e125]
+  - generic [ref=e128]:
+    - heading "¿Tu empresa necesita una transformación así?" [level=2] [ref=e129]:
+      - text: ¿Tu empresa necesita
+      - text: una transformación así?
+    - paragraph [ref=e130]: Hablemos sobre tu proyecto. Primera consulta gratuita, sin compromiso.
+    - link "Escribirnos ahora" [ref=e131] [cursor=pointer]:
+      - /url: mailto:admin@ignia.site
+      - text: Escribirnos ahora
+      - img [ref=e132]
+  - contentinfo [ref=e135]:
+    - generic [ref=e136]:
+      - generic [ref=e137]:
+        - link "Ignia Ignia" [ref=e138] [cursor=pointer]:
+          - /url: /
+          - img "Ignia" [ref=e139]
+          - generic [ref=e140]: Ignia
+        - paragraph [ref=e141]: Transformamos empresas con tecnología que funciona.
+        - link "admin@ignia.site" [ref=e142] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e143]:
+        - generic [ref=e144]: Servicios
+        - link "Plataformas Web" [ref=e145] [cursor=pointer]:
+          - /url: /servicios/plataformas-web
+        - link "Consultoría & IA" [ref=e146] [cursor=pointer]:
+          - /url: /servicios/consultoria-ti
+        - link "Automatización" [ref=e147] [cursor=pointer]:
+          - /url: /servicios/automatizacion
+      - generic [ref=e148]:
+        - generic [ref=e149]: Empresa
+        - link "Proyectos" [ref=e150] [cursor=pointer]:
+          - /url: /proyectos
+        - link "Taller Gratuito" [ref=e151] [cursor=pointer]:
+          - /url: /taller
+        - link "Contacto" [ref=e152] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+      - generic [ref=e153]:
+        - generic [ref=e154]: Contacto
+        - link "hola@ignia.dev" [ref=e155] [cursor=pointer]:
+          - /url: mailto:admin@ignia.site
+        - link "WhatsApp" [ref=e156] [cursor=pointer]:
+          - /url: https://wa.me/5491100000000
+        - link "LinkedIn" [ref=e157] [cursor=pointer]:
+          - /url: https://linkedin.com/company/ignia
+    - generic [ref=e158]:
+      - generic [ref=e159]: © 2026 Ignia. Todos los derechos reservados.
+      - generic [ref=e160]: Desarrollo web, IA y automatización.
