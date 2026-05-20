@@ -5,7 +5,7 @@
 
 [build.environment]
   NODE_VERSION = "24"
-  PYTHON_VERSION = "3.11"
+  PYTHON_VERSION = "3.9"
 
 # WhatsApp webhook — standalone function, no FastAPI dependency
 [[redirects]]
@@ -29,9 +29,6 @@
 
 [functions]
   directory = "netlify/functions"
-  included_files = [
-    "apps/backend/**",
-  ]
 
 [dev]
   command = "cd apps/frontend && npm start"
