@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: ignia-api
+    runtime: python
+    region: oregon
+    rootDir: apps
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: MONGOURI
+        sync: false
+      - key: EMAIL_SMTP
+        sync: false
+      - key: APPPASSWORD
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_NOTIFY_PHONE
+        sync: false
+      - key: WHATSAPP_COMMUNITY_URL
+        sync: false
+      - key: WHATSAPP_VERIFY_TOKEN
+        sync: false
+      - key: WHATSAPP_WELCOME_TEMPLATE
+        sync: false
+      - key: CHAT_RATE_LIMIT
+        value: "20"

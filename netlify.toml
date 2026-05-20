@@ -1,38 +1,17 @@
 [build]
-  command = "cd apps/frontend && npm ci && npm run build"
+  command = "npm install && cd apps/frontend && npm ci && npm run build"
   publish = "apps/frontend/dist/frontend/browser"
   functions = "netlify/functions"
 
 [build.environment]
-  NODE_VERSION = "24"
-  PYTHON_VERSION = "3.9"
+  NODE_VERSION = "20"
 
-# WhatsApp webhook — standalone function, no FastAPI dependency
-[[redirects]]
-  from = "/api/leads/webhook"
-  to = "/.netlify/functions/webhook"
-  status = 200
-  force = true
-
-# Proxy all other /api/* requests to the Python FastAPI function
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api"
-  status = 200
-  force = true
+[functions]
+  node_bundler = "esbuild"
 
 # SPA fallback — all other routes go to Angular's index.html
+# Note: /api/* routes are handled by Netlify Functions v2 (config.path)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[functions]
-  directory = "netlify/functions"
-
-[dev]
-  command = "cd apps/frontend && npm start"
-  targetPort = 4200
-  port = 8888
-  publish = "apps/frontend/dist/frontend/browser"
-  autoLaunch = false

@@ -53,7 +53,8 @@
       "Bash(Select-Object -ExpandProperty FullName)",
       "Bash(Sort-Object)",
       "Bash(Get-Content \"C:\\\\Marcos\\\\Proyectos\\\\Ignia\\\\ignia\\\\.env\")",
-      "Bash(Select-String \"URL_CALENDAR\")"
+      "Bash(Select-String \"URL_CALENDAR\")",
+      "WebFetch(domain:ignia.site)"
     ]
   }
 }
